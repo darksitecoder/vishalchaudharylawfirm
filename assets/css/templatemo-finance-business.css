@@ -608,7 +608,7 @@ ul.slick-dots {
 
 .fun-facts em {
 	font-style: normal;
-	color: #0b1b2e;
+	color: #c3a167;
 }
 
 .fun-facts p {
@@ -629,7 +629,7 @@ ul.slick-dots {
 
 .count-digit {
     margin: 5px 0px;
-    color: #0b1b2e;
+    color: #c3a167;
     font-weight: 700;
     font-size: 36px;
 }
@@ -933,8 +933,7 @@ footer ul.social-icons li a {
 }
 
   ul.social-icons li a:hover {
-	background-color: #c3a167
-	;
+	background-color: #c3a167;
 }
 
 footer ul.menu-list li {
@@ -1012,9 +1011,9 @@ footer .contact-form ::placeholder {
 }
 
 footer .contact-form button.filled-button {
-	background-color: transparent;
+	/* background-color: transparent; */
 	color: #fff;
-	background-color: #0b1b2e;
+	background-color: #c3a167;
 	border: none;
 	font-size: 13px;
 	text-transform: uppercase;
@@ -1030,7 +1029,7 @@ footer .contact-form button.filled-button {
 }
 
 footer .contact-form button.filled-button:hover {
-	background-color: #fff;
+	/* background-color: #0b1b2e; */
 	color: #0b1b2e;
 }
 
@@ -1039,19 +1038,19 @@ footer .contact-form button.filled-button:hover {
 /* Sub-footer Style */
 
 .sub-footer {
-	background-color: #343434;
+	background-color: #c3a167;
 	text-align: center;
-	padding: 25px 0px;
+	padding: 8px 0px;
 }
 
 .sub-footer p {
-	color: #fff;
-	font-weight: 300;
+	color: #0b1b2e;
 	letter-spacing: 0.5px;
+	font-weight: 600;
 }
 
 .sub-footer a {
-	color: #fff;
+	color: #0b1b2e;
 }
 
 
@@ -1088,7 +1087,7 @@ footer .contact-form button.filled-button:hover {
 	background-color: #f7f7f7;
 	margin-top: 140px;
 	margin-bottom: -140px;
-	padding: 120px 0px;
+	/* padding: 120px 0px; */
 }
 
 .team-item img {
