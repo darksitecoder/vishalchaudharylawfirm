@@ -603,7 +603,7 @@ ul.slick-dots {
 .fun-facts h2 {
 	font-size: 36px;
 	font-weight: 600;
-	margin-bottom: 35px;
+	margin-bottom: 10px;
 }
 
 .fun-facts em {
@@ -619,12 +619,20 @@ ul.slick-dots {
 .fun-facts .left-content {
 	margin-right: 45px;
 }
+.fun-facts .left-content li{
+	padding: 0.5rem 0rem;
+}
+.fun-facts .left-content li::before{
+	content: '→ ';
+}
 
 .count-area-content {
 	text-align: center;
 	background-color: rgba(250,250,250,0.1);
 	padding: 25px 30px 35px 30px;
 	margin: 15px 0px;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	border-radius: 10px;
 }
 
 .count-digit {
@@ -651,6 +659,8 @@ ul.slick-dots {
 .more-info .left-image img {
 	width: 100%;
 	overflow: hidden;
+	border-radius: 5px;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .more-info .more-info-content {
@@ -672,8 +682,8 @@ ul.slick-dots {
 
 .more-info .right-content span {
 	text-transform: uppercase;
-	font-size: 15px;
-	color: #666;
+	font-size: 20px;
+	color: #020202;
 	letter-spacing: 1px;
 	margin-bottom: 10px;
 	display: block;
@@ -702,7 +712,7 @@ ul.slick-dots {
 }
 
 .testimonials {
-	margin-top: 140px;
+	/* margin-top: 140px; */
 	background-color: #f7f7f7;
 	padding: 140px 0px;
 }
@@ -1056,7 +1066,7 @@ footer .contact-form button.filled-button:hover {
 
 .page-heading {
 	text-align: center;
-	background-image: url(../images/page-heading-bg.jpg);
+	background-image: url(../images/page-heading-bg.png);
 	background-position: center center;
 	background-repeat: no-repeat;
 	background-size: cover;
