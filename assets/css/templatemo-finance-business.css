@@ -758,7 +758,7 @@ ul.slick-dots {
 
 .contact-us {
 	background-color: #f7f7f7;
-	padding: 140px 0px;
+	padding: 80px 0px;
 }
 
 .contact-us .contact-form {
@@ -767,7 +767,7 @@ ul.slick-dots {
 }
 
 .callback-form {
-	margin-top: 140px;
+	/* margin-top: 140px; */
 }
 
 .callback-form .contact-form {
@@ -779,6 +779,7 @@ ul.slick-dots {
 
 .callback-form .contact-form input {
 	border-radius: 20px;
+	border: 1px solid #0b1b2e;
 	height: 40px;
 	line-height: 40px;
 	display: inline-block;
@@ -787,18 +788,19 @@ ul.slick-dots {
 	font-size: 13px;
 	text-transform: none;
 	box-shadow: none;
-	border: none;
+	/* border: none; */
 	margin-bottom: 35px;
 }
 
 .callback-form .contact-form input:focus {
 	outline: none;
 	box-shadow: none;
-	border: none;
+	/* border: none; */
 }
 
 .callback-form .contact-form textarea {
 	border-radius: 20px;
+	border: 1px solid #0b1b2e;
 	height: 120px;
 	max-height: 200px;
 	min-height: 120px;
@@ -808,14 +810,14 @@ ul.slick-dots {
 	font-size: 13px;
 	text-transform: none;
 	box-shadow: none;
-	border: none;
+	/* border: none; */
 	margin-bottom: 35px;
 }
 
 .callback-form .contact-form textarea:focus {
 	outline: none;
 	box-shadow: none;
-	border: none;
+	/* border: none; */
 }
 
 .callback-form .contact-form ::-webkit-input-placeholder { /* Edge */
@@ -868,7 +870,7 @@ ul.slick-dots {
 }
 
 .contact-us .contact-form button.filled-button:hover {
-	background-color: #fff;
+	background-color: #c3a167;
 	color: #0b1b2e;
 }
 
@@ -902,6 +904,10 @@ ul.slick-dots {
 
 footer {
 	background-color: #0b1b2e;
+	background: url('/assets/images/footer-background.png');
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
 	padding: 80px 0px;
 	color: #fff;
 }
@@ -911,14 +917,17 @@ footer h4 {
 	font-size: 20px;
 	font-weight: 600;
 	letter-spacing: 0.25px;
-	margin-bottom: 35px;
+	margin-bottom: 15px;
+}
+footer .footer-item .footer-logo img{
+	width: 130px;
 }
 footer p {
 	color: #fff;
 }
 
 footer ul.social-icons {
-	margin-top: 25px;
+	margin-top: 15px;
 }
 
 footer ul.social-icons li {
@@ -1155,7 +1164,7 @@ footer .contact-form button.filled-button:hover {
 	display: inline-block;
 	background-color: #0b1b2e;
   	font-size: 20px;
-  	color: #121212;
+  	color: #c3a167;
   	letter-spacing: 0.5px;
   	font-weight: 700;
   	transition: all 0.3s;
@@ -1204,7 +1213,7 @@ footer .contact-form button.filled-button:hover {
 /* Contact Information */
 
 .contact-information {
-	margin-top: 140px;
+	/* margin-top: 140px; */
 }
 
 .contact-information .contact-item {
