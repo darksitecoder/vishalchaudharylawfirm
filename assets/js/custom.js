@@ -91,6 +91,33 @@ jQuery( document ).ready(function( $ ) {
                 }
             });
         }
+        if ($('.owl-team').length) {
+            $('.owl-team').owlCarousel({
+                loop: true,
+                nav: false,
+                dots: true,
+                items: 3,
+                margin: 30,
+                autoplay: true,
+                smartSpeed: 50,
+                autoplayTimeout: 50,
+                autoplayHoverPause: true,
+                responsive: {
+                    0: {
+                        items: 1,
+                        margin: 20
+                    },
+                    576: {
+                        items: 2,
+                        margin: 25
+                    },
+                    992: {
+                        items: 3,
+                        margin: 30
+                    }
+                }
+            });
+        }
 
         $(".Modern-Slider").slick({
             autoplay:true,

@@ -3,18 +3,18 @@
 .navbar-nav .dropdown-menu.animated-services {
   min-width: 220px;
   background: #fff 0 0 no-repeat padding-box;
-  border-radius: 10px;
+  border-radius: 0px;
   box-shadow: 0 8px 32px 0 rgba(31,38,135,0.2);
   border: none;
-  margin-top: 12px;
+  /* margin-top: 12px; */
   opacity: 0;
   transform: translateY(10px);
   transition: all 0.35s cubic-bezier(0.19, 1, 0.22, 1);
   pointer-events: none;
   display: block;
   position: absolute;
-  left: 65%;
-  top: 60%; /* Full width; better for mega dropdown style */
+  left: 0%;
+  top: 75%; /* Full width; better for mega dropdown style */
 }
 .navbar-nav .nav-item.dropdown:hover > .dropdown-menu.animated-services,
 .navbar-nav .nav-item.dropdown:focus-within > .dropdown-menu.animated-services,

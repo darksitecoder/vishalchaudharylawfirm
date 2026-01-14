@@ -233,7 +233,7 @@ header {
 	z-index: 99999;
 	width: 100%;
 	background-color: #fff!important;
-	height: 80px;
+	/* height: 80px; */
 	-webkit-transition: all 0.3s ease-in-out 0s;
     -moz-transition: all 0.3s ease-in-out 0s;
     -o-transition: all 0.3s ease-in-out 0s;
@@ -245,7 +245,7 @@ header .navbar {
 	background-color: #fff;
 }
 .background-header .navbar {
-	padding: 10px 0px;
+	/* padding: 10px 0px; */
 }
 .background-header {
 	top: 0;
@@ -267,12 +267,13 @@ header .navbar {
 	color: #0b1b2e!important;
 }
 .navbar .navbar-brand {
+	width: 240px;
 	float: 	left;
 	/* margin-top: 12px; */
 	outline: none;
 }
 .navbar .navbar-brand img{
-	width: 80%;
+	width: 100%;
 }
 .navbar .navbar-brand h2 {
 	color: #fff;
@@ -920,7 +921,7 @@ footer h4 {
 	margin-bottom: 15px;
 }
 footer .footer-item .footer-logo img{
-	width: 130px;
+	width: 100px;
 }
 footer p {
 	color: #fff;
@@ -1317,7 +1318,7 @@ footer .contact-form button.filled-button:hover {
 		margin-bottom: 30px;
 	}
 	.navbar .navbar-brand img{
-		width: 60%;
+		width: 30%;
 	}
 }
 

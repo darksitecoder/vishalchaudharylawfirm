@@ -38,8 +38,8 @@
                 <a class="nav-link" href="#top">Home <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
-              <li class="nav-item dropdown position-static">
-                <a class="nav-link dropdown-toggle" href="services.html" id="servicesDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Our Services</a>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="services.html" id="servicesDropdown" >Our Services</a>
                 <ul class="dropdown-menu animated-services" aria-labelledby="servicesDropdown">
                   <li><a class="dropdown-item" href="#services">Corporate Law</a></li>
                   <li><a class="dropdown-item" href="#services">Civil Litigation</a></li>
@@ -255,33 +255,71 @@
           <span>Meet the legal minds behind your success</span>
         </div>
         <div class="row">
-          <div class="col-md-4">
-            <div class="team-item">
-              <img src="assets/images/team_01.jpg" alt="Attorney 1">
-              <div class="down-content">
-                <h4>John M. Carter</h4>
-                <span>Senior Partner, Corporate Law</span>
-                <p>More than 25 years in mergers, acquisitions, and business law counseling.</p>
+          <div class="col-md-12">
+            <div class="owl-team owl-carousel">
+              <div class="team-item">
+                <img src="assets/images/team_01.jpg" alt="Attorney 1">
+                <div class="down-content">
+                  <h4>John M. Carter</h4>
+                  <span>Senior Partner, Corporate Law</span>
+                  <p>More than 25 years in mergers, acquisitions, and business law counseling.</p>
+                </div>
               </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="team-item">
-              <img src="assets/images/team_02.jpg" alt="Attorney 2">
-              <div class="down-content">
-                <h4>Linda M. Jameson</h4>
-                <span>Partner, Family & Civil Litigation</span>
-                <p>Renowned for compassion and precision in high-stakes legal battles.</p>
+              <div class="team-item">
+                <img src="assets/images/team_02.jpg" alt="Attorney 2">
+                <div class="down-content">
+                  <h4>Linda M. Jameson</h4>
+                  <span>Partner, Family & Civil Litigation</span>
+                  <p>Renowned for compassion and precision in high-stakes legal battles.</p>
+                </div>
               </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="team-item">
-              <img src="assets/images/team_03.jpg" alt="Attorney 3">
-              <div class="down-content">
-                <h4>Rajesh Sharma</h4>
-                <span>Partner, Tax, Criminal & Property</span>
-                <p>Strategic expertise in complex criminal defense and estate planning cases.</p>
+              <div class="team-item">
+                <img src="assets/images/team_03.jpg" alt="Attorney 3">
+                <div class="down-content">
+                  <h4>Rajesh Sharma</h4>
+                  <span>Partner, Tax, Criminal & Property</span>
+                  <p>Strategic expertise in complex criminal defense and estate planning cases.</p>
+                </div>
+              </div>
+              <div class="team-item">
+                <img src="assets/images/team_01.jpg" alt="Attorney 4">
+                <div class="down-content">
+                  <h4>Sarah Williams</h4>
+                  <span>Senior Associate, Employment Law</span>
+                  <p>Expert in labor disputes, workplace discrimination, and employment contracts.</p>
+                </div>
+              </div>
+              <div class="team-item">
+                <img src="assets/images/team_02.jpg" alt="Attorney 5">
+                <div class="down-content">
+                  <h4>Michael Chen</h4>
+                  <span>Partner, Intellectual Property</span>
+                  <p>Protecting innovation and creativity through comprehensive IP strategy and litigation.</p>
+                </div>
+              </div>
+              <div class="team-item">
+                <img src="assets/images/team_03.jpg" alt="Attorney 6">
+                <div class="down-content">
+                  <h4>Priya Patel</h4>
+                  <span>Senior Associate, Real Estate Law</span>
+                  <p>Specialized in commercial real estate transactions and property dispute resolution.</p>
+                </div>
+              </div>
+              <div class="team-item">
+                <img src="assets/images/team_01.jpg" alt="Attorney 7">
+                <div class="down-content">
+                  <h4>David Thompson</h4>
+                  <span>Partner, Immigration Law</span>
+                  <p>Helping individuals and businesses navigate complex immigration processes successfully.</p>
+                </div>
+              </div>
+              <div class="team-item">
+                <img src="assets/images/team_02.jpg" alt="Attorney 8">
+                <div class="down-content">
+                  <h4>Emily Rodriguez</h4>
+                  <span>Senior Associate, Tax & Estate Planning</span>
+                  <p>Creating comprehensive estate plans and minimizing tax liabilities for clients.</p>
+                </div>
               </div>
             </div>
           </div>
@@ -440,7 +478,7 @@
             <ul class="menu-list">
               <li><a href="#contact">Phone: +91 98114 02715</a></li>
               <li><a href="#contact">Email: VishalChaudharyslawfirm@gmail.com</a></li>
-              <li><a href="#contact">Address: Chamber F-38, Tis Hazari Court, Delhi</a></li>
+              <li><a href="#contact">Address: Chamber Y-38, Tis Hazari Court, Delhi</a></li>
               <li><a href="#">Mon - Fri: 10:00am - 7:00pm</a></li>
               <li><a href="#">Sat: 10:00am - 6:00pm</a></li>
             </ul>
@@ -545,6 +583,35 @@
             autoplay: true,
             smartSpeed: 700,
             autoplayTimeout: 7000
+          });
+        }
+        // Autoplay for team/attorneys carousel
+        if ($('.owl-team').length) {
+          $('.owl-team').owlCarousel('destroy'); // Prevent duplicates
+          $('.owl-team').owlCarousel({
+            loop: true,
+            nav: false,
+            dots: true,
+            items: 3,
+            margin: 30,
+            autoplay: true,
+            smartSpeed: 800,
+            autoplayTimeout: 4000,
+            autoplayHoverPause: true,
+            responsive: {
+              0: {
+                items: 1,
+                margin: 20
+              },
+              576: {
+                items: 2,
+                margin: 25
+              },
+              992: {
+                items: 3,
+                margin: 30
+              }
+            }
           });
         }
       });
