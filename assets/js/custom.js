@@ -67,10 +67,10 @@ jQuery( document ).ready(function( $ ) {
                 nav: false,
                 dots: true,
                 items: 1,
-                margin: 30,
-                autoplay: false,
-                smartSpeed: 700,
-                autoplayTimeout: 6000,
+                margin: 10,
+                autoplay: true,
+                smartSpeed: 10000,
+                autoplayTimeout: 900,
                 responsive: {
                     0: {
                         items: 1,
@@ -85,8 +85,8 @@ jQuery( document ).ready(function( $ ) {
                         margin: 20
                     },
                     992: {
-                        items: 4,
-                        margin: 30
+                        items: 5,
+                        margin: 20
                     }
                 }
             });
