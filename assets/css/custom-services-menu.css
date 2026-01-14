@@ -51,4 +51,16 @@
   .navbar-nav .nav-item.dropdown.show > .dropdown-menu.animated-services {
     display: block;
   }
+  .navbar-nav .nav-item.dropdown > a.nav-link {
+    cursor: pointer;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .navbar-nav .dropdown-menu.animated-services .dropdown-item {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+  .navbar-nav .dropdown-menu.animated-services .dropdown-divider {
+    margin: 8px 0;
+  }
 }
