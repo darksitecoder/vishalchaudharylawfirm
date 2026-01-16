@@ -1,0 +1,245 @@
+   /* Sticky Navigation */
+        .bookmark-nav {
+            position: sticky;
+            top: 0%;
+            background-color:#0b1b2e;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+
+        @media (max-width: 991.98px) {
+            .navbar-expand-lg > .container, .navbar-expand-lg > .container-fluid {
+                height: 80px;
+            }
+        }
+        
+        .bookmark-nav-wrapper {
+            overflow-x: auto;
+            overflow-y: hidden;
+            -webkit-overflow-scrolling: touch;
+            padding: 1.5rem 0;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(255,255,255,0.3) transparent;
+        }
+
+        .bookmark-nav-wrapper::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .bookmark-nav-wrapper::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .bookmark-nav-wrapper::-webkit-scrollbar-thumb {
+            background: rgba(255,255,255,0.3);
+            border-radius: 3px;
+        }
+
+        .bookmark-nav-wrapper::-webkit-scrollbar-thumb:hover {
+            background: rgba(255,255,255,0.5);
+        }
+
+        .bookmark-nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: nowrap;
+            min-width: max-content;
+        }
+
+        .bookmark-nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            background: rgba(255,255,255,0.1);
+            flex-shrink: 0;
+        }
+
+        .bookmark-nav-link:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+            color: #c3a167;
+        }
+
+        .bookmark-nav-link.active {
+            background: rgba(255,255,255,0.3);
+        }
+
+        /* Main Content */
+        /* .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        } */
+
+        section {
+            margin-bottom: 4rem;
+            scroll-margin-top: 80px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #0b1b2e;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #0b1b2e;
+            border-left: 4px solid #0b1b2e;
+            padding-left: 1rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            text-align: justify;
+        }
+
+        /* Image Styles */
+        .image-container {
+            width: 100%;
+            margin: 2rem 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        .image-large {
+            max-height: 500px;
+        }
+
+        .image-medium {
+            max-height: 400px;
+        }
+
+        /* Two Column Layout for Images */
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        /* Stats Section */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #0b1b2e 0%, #0b1b2e 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Mobile Menu Button */
+        .bookmark-nav-mobile-btn {
+            display: none;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+
+            .bookmark-nav-wrapper {
+                overflow-x: visible;
+            }
+
+            .bookmark-nav-container {
+                flex-direction: column;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+                min-width: auto;
+            }
+
+            .bookmark-nav-container.active {
+                max-height: 600px;
+                overflow-y: auto;
+            }
+
+            .bookmark-nav-mobile-btn {
+                display: block;
+                width: calc(100% - 2rem);
+                margin: 0 1rem 0.5rem 1rem;
+            }
+
+            .bookmark-nav {
+                padding: 0.5rem 0;
+            }
+
+            .bookmark-nav-link {
+                width: 100%;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .image-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            h2 {
+                font-size: 1.2rem;
+            }
+
+            /* .container {
+                padding: 1rem 0.5rem;
+            } */
+
+            .stat-card {
+                padding: 1.5rem;
+            }
+        }
