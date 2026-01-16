@@ -80,6 +80,14 @@ a.border-button:hover {
 	color: #0b1b2e;
 }
 
+@media (max-width: 991.98px) {
+  .navbar-expand-lg > .container, .navbar-expand-lg > .container-fluid {
+    padding-right: 0;
+    padding-left: 0;
+    height: 84px;
+  }
+}
+
 .section-heading span {
 	display: block;
 	margin-top: 15px;
