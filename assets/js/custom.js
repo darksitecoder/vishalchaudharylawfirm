@@ -69,7 +69,7 @@ jQuery( document ).ready(function( $ ) {
                 items: 1,
                 margin: 10,
                 autoplay: true,
-                smartSpeed: 10000,
+                smartSpeed: 1000,
                 autoplayTimeout: 900,
                 responsive: {
                     0: {
