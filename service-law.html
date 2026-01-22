@@ -232,46 +232,55 @@
     </div>
 
 
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
+    <div class="modal fade consultation-modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <h5 class="modal-title" id="exampleModalLabel">
+              <i class="fa fa-calendar-check-o"></i> Book Your Consultation
+            </h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
           </div>
           <div class="modal-body">
-            <form id="contact" action="" method="post">
+            <p class="modal-subtitle">Fill out the form below and we'll get back to you as soon as possible.</p>
+            <form id="consultationForm" action="" method="post">
               <div class="row">
-                <div class="col-lg-4 col-md-12 col-sm-12">
+                <div class="col-lg-6 col-md-12 col-sm-12">
                   <fieldset>
-                    <input name="name" type="text" class="form-control" id="name" placeholder="Full Name" required="">
+                    <input name="name" type="text" class="form-control consultation-input" id="consultationName" placeholder="Full Name" required="">
                   </fieldset>
                 </div>
-                <div class="col-lg-4 col-md-12 col-sm-12">
+                <div class="col-lg-6 col-md-12 col-sm-12">
                   <fieldset>
-                    <input name="email" type="text" class="form-control" id="email" pattern="[^ @]*@[^ @]*" placeholder="E-Mail Address" required="">
+                    <input name="email" type="email" class="form-control consultation-input" id="consultationEmail" pattern="[^ @]*@[^ @]*" placeholder="E-Mail Address" required="">
                   </fieldset>
                 </div>
-                <div class="col-lg-4 col-md-12 col-sm-12">
+                <div class="col-lg-6 col-md-12 col-sm-12">
                   <fieldset>
-                    <input name="phone" type="text" class="form-control" id="phone" placeholder="Phone Number" required="">
+                    <input name="phone" type="tel" class="form-control consultation-input" id="consultationPhone" placeholder="Phone Number" required="">
+                  </fieldset>
+                </div>
+                <div class="col-lg-6 col-md-12 col-sm-12">
+                  <fieldset>
+                    <input name="subject" type="text" class="form-control consultation-input" id="consultationSubject" placeholder="Subject / Legal Area" required="">
                   </fieldset>
                 </div>
                 <div class="col-lg-12">
                   <fieldset>
-                    <textarea name="message" rows="6" class="form-control" id="message" placeholder="How can we help you?" required=""></textarea>
+                    <textarea name="message" rows="5" class="form-control consultation-textarea" id="consultationMessage" placeholder="Tell us about your legal matter. How can we help you?" required=""></textarea>
                   </fieldset>
                 </div>
-                <div class="col-lg-12">
+                <div class="col-lg-12 text-center">
                   <fieldset>
-                    <button type="submit" id="form-submit" class="border-button">Send Message</button>
+                    <button type="submit" id="consultationSubmit" class="consultation-submit-btn">
+                      <i class="fa fa-paper-plane"></i> Submit Request
+                    </button>
                   </fieldset>
                 </div>
               </div>
             </form>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
           </div>
         </div>
       </div>
