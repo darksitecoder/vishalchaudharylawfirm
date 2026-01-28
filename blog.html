@@ -1,1196 +1,1406 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Premium Law Firm - Professional Legal Solutions">
-  <meta name="author" content="Vishal Chaudhary's Law Firm">
-  <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
-  <title>Vishal Chaudhary's Law Firm Attorneys & Legal Consultants</title>
-  <!-- Bootstrap core CSS -->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Additional CSS Files -->
-  <link rel="stylesheet" href="assets/css/fontawesome.css">
-  <link rel="stylesheet" href="assets/css/templatemo-finance-business.css">
-  <link rel="stylesheet" href="assets/css/owl.css">
-  <link rel="stylesheet" href="assets/css/custom-services-menu.css">
-  <style>
-    
-
-    /* Animations */
-    @keyframes fadeIn {
-        from {
-            opacity: 0;
-            transform: translateY(30px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-    @keyframes slideInRight {
-        from {
-            opacity: 0;
-            transform: translateX(30px);
-        }
-        to {
-            opacity: 1;
-            transform: translateX(0);
-        }
-    }
-
-    @keyframes fadeInUp {
-        from {
-            opacity: 0;
-            transform: translateY(20px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-    @keyframes float {
-        0%, 100% { transform: translateY(0px); }
-        50% { transform: translateY(-10px); }
-    }
-
-    .fade-in {
-        animation: fadeIn 0.8s ease-out forwards;
-    }
-
-    .slide-in-right {
-        animation: slideInRight 0.6s ease-out forwards;
-    }
-
-    /* Header */
-    /* .header {
-        position: relative;
-        height: 400px;
-        background: linear-gradient(135deg, #22d3ee, #0b1b2e, #10b981);
-        overflow: hidden;
-    }
-
-    .header::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-    }
-
-    .header-content {
-        position: relative;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        color: white;
-        animation: fadeInUp 1s ease-out;
-    }
-
-    .header-content h1 {
-        font-size: 4rem;
-        margin-bottom: 1rem;
-        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-    }
-
-    .header-content p {
-        font-size: 1.5rem;
-        opacity: 0.9;
-    } */
-
-    /* Container */
-    .container {
-        max-width: 1400px;
-        margin: 0 auto;
-        /* padding: 3rem 2rem; */
-        display: grid;
-        grid-template-columns: 2fr 1fr;
-        gap: 2rem;
-    }
-
-    /* Blog Card */
-    .blog-grid {
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
-        margin-top: 6rem;
-    }
-
-    .blog-card {
-        background: white;
-        border-radius: 20px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        overflow: hidden;
-        display: flex;
-        opacity: 0;
-        transition: all 0.5s ease;
-        cursor: pointer;
-    }
-
-    .blog-card:hover {
-        transform: scale(1.02);
-        box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-    }
-
-    .blog-image {
-        width: 40%;
-        height: 280px;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .blog-image img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 0.7s ease;
-    }
-
-    .blog-card:hover .blog-image img {
-        transform: scale(1.1);
-    }
-
-    .featured-badge {
-        position: absolute;
-        top: 1rem;
-        left: 1rem;
-        background: #fbbf24;
-        color: #1f2937;
-        padding: 0.5rem 1rem;
-        border-radius: 20px;
-        font-size: 0.85rem;
-        font-weight: bold;
-        display: flex;
-        align-items: center;
-        gap: 0.3rem;
-    }
-
-    .blog-content {
-        padding: 2rem;
-        flex: 1;
-    }
-
-    .blog-meta {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        margin-bottom: 1rem;
-    }
-
-    .category-badge {
-        background: linear-gradient(135deg, #06b6d4, #0b1b2e);
-        color: white;
-        padding: 0.5rem 1rem;
-        border-radius: 20px;
-        font-size: 0.85rem;
-        font-weight: 600;
-    }
-
-    .read-time {
-        color: #6b7280;
-        font-size: 0.85rem;
-        display: flex;
-        align-items: center;
-        gap: 0.3rem;
-    }
-
-    .blog-title {
-        font-size: 1.8rem;
-        color: #1f2937;
-        margin-bottom: 1rem;
-        transition: color 0.3s;
-    }
-
-    .blog-card:hover .blog-title {
-        color: #0b1b2e;
-    }
-
-    .blog-excerpt {
-        color: #4b5563;
-        margin-bottom: 1rem;
-        line-height: 1.6;
-    }
-
-    .blog-footer {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        color: #6b7280;
-        font-size: 0.9rem;
-    }
-
-    .author-date {
-        display: flex;
-        gap: 1.5rem;
-    }
-
-    /* Sidebar */
-    .sidebar {
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
-        margin-top: 6rem;
-    }
-
-    .sidebar-section {
-        background: white;
-        border-radius: 20px;
-        padding: 1.5rem;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    }
-
-    .sidebar-section.featured {
-        background: linear-gradient(135deg, #fef3c7, #fde68a);
-    }
-
-    .sidebar-section.categories {
-        background: linear-gradient(135deg, #ccfbf1, #a7f3d0);
-    }
-
-    .sidebar-title {
-        font-size: 1.3rem;
-        color: #1f2937;
-        margin-bottom: 1rem;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-    }
-
-    .category-list {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-
-    .category-item {
-        padding: 0.75rem 1rem;
-        border-radius: 10px;
-        cursor: pointer;
-        transition: all 0.3s;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .category-item:hover {
-        background: linear-gradient(90deg, #e0f2fe, #ccfbf1);
-        transform: translateX(5px);
-    }
-
-    .recent-post {
-        display: flex;
-        gap: 1rem;
-        margin-bottom: 1rem;
-        cursor: pointer;
-    }
-
-    .recent-post:hover .recent-title {
-        color: #0b1b2e;
-    }
-
-    .recent-image {
-        width: 80px;
-        height: 80px;
-        border-radius: 10px;
-        object-fit: cover;
-        transition: transform 0.3s;
-    }
-
-    .recent-post:hover .recent-image {
-        transform: scale(1.1);
-    }
-
-    .recent-title {
-        font-size: 0.9rem;
-        font-weight: 600;
-        color: #1f2937;
-        transition: color 0.3s;
-        margin-bottom: 0.3rem;
-    }
-
-    .recent-date {
-        font-size: 0.75rem;
-        color: #6b7280;
-    }
-
-    .most-read-item {
-        display: flex;
-        gap: 1rem;
-        margin-bottom: 1rem;
-        align-items: flex-start;
-        cursor: pointer;
-    }
-
-    .read-number {
-        font-size: 2rem;
-        font-weight: bold;
-        color: #0b1b2e;
-        min-width: 40px;
-    }
-
-    .read-views {
-        font-size: 0.75rem;
-        color: #6b7280;
-        margin-top: 0.3rem;
-    }
-
-    /* Detail Page */
-    .detail-header {
-        position: relative;
-        height: 500px;
-        overflow: hidden;
-    }
-
-    .detail-header img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-    .detail-overlay {
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.3), transparent);
-    }
-
-    .back-button {
-        position: absolute;
-        top: 2rem;
-        left: 2rem;
-        background: rgba(255,255,255,0.9);
-        color: #1f2937;
-        padding: 1rem 2rem;
-        border-radius: 30px;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.3s;
-        border: none;
-        font-size: 1rem;
-    }
-
-    .back-button:hover {
-        background: white;
-        transform: scale(1.05);
-    }
-
-    .detail-info {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        padding: 3rem;
-        color: white;
-    }
-
-    .detail-info h1 {
-        font-size: 3.5rem;
-        margin-bottom: 1rem;
-        max-width: 1200px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .detail-meta {
-        display: flex;
-        gap: 2rem;
-        font-size: 0.95rem;
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-
-    .article-content {
-        max-width: 1400px;
-        margin: 3rem auto;
-        padding: 0 2rem;
-        display: grid;
-        grid-template-columns: 2fr 1fr;
-        gap: 2rem;
-    }
-
-    .article-main {
-        background: white;
-        border-radius: 20px;
-        padding: 3rem;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        animation: fadeInUp 0.8s ease-out;
-    }
-
-    .article-text {
-        font-size: 1.1rem;
-        line-height: 1.8;
-        color: #374151;
-    }
-
-    .article-text p {
-        margin-bottom: 1.5rem;
-    }
-
-    .article-text h2 {
-        font-size: 2rem;
-        color: #1f2937;
-        margin: 2rem 0 1rem;
-    }
-
-    .article-image {
-        width: 100%;
-        border-radius: 15px;
-        margin: 2rem 0;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    }
-
-    .quote {
-        border-left: 4px solid #0b1b2e;
-        padding-left: 2rem;
-        margin: 2rem 0;
-        font-style: italic;
-        font-size: 1.3rem;
-        color: #4b5563;
-    }
-
-    .takeaways {
-        background: linear-gradient(135deg, #e0f2fe, #ccfbf1);
-        border-radius: 15px;
-        padding: 2rem;
-        margin: 2rem 0;
-    }
-
-    .takeaways h3 {
-        font-size: 1.5rem;
-        margin-bottom: 1rem;
-        color: #1f2937;
-    }
-
-    .takeaways ul {
-        list-style: none;
-    }
-
-    .takeaways li {
-        margin-bottom: 0.75rem;
-        display: flex;
-        align-items: flex-start;
-        gap: 0.5rem;
-    }
-
-    .labels-section {
-        margin-top: 2rem;
-        padding-top: 2rem;
-        border-top: 2px solid #e5e7eb;
-    }
-
-    .labels-section h4 {
-        margin-bottom: 1rem;
-        color: #1f2937;
-    }
-
-    .labels-container {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-    }
-
-    .label-tag {
-        background: linear-gradient(135deg, #cffafe, #ccfbf1);
-        color: #0f766e;
-        padding: 0.5rem 1rem;
-        border-radius: 20px;
-        font-size: 0.9rem;
-        font-weight: 500;
-        cursor: pointer;
-        transition: transform 0.3s;
-    }
-
-    .label-tag:hover {
-        transform: scale(1.05);
-    }
-
-    .hidden {
-        display: none;
-    }
-
-    /* Responsive */
-    @media (max-width: 968px) {
-        .container, .article-content {
-            grid-template-columns: 1fr;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal Blog - Articles & Insights</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        .blog-card {
-            flex-direction: column;
+        body {
+            font-family: 'Georgia', serif;
+            background-color: #f8f9fa;
+            color: #000;
+            line-height: 1.6;
         }
 
-        .blog-image {
+        .blog-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .blog-hero-section {
+            background: linear-gradient(135deg, #0b1b2e 0%, #1a2f45 100%);
+            padding: 60px 40px;
+            text-align: center;
+            margin-bottom: 50px;
+            border-radius: 8px;
+        }
+
+        .blog-hero-title {
+            color: #fff;
+            font-size: 3em;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .blog-hero-subtitle {
+            color: #c3a167;
+            font-size: 1.2em;
+            font-style: italic;
+        }
+
+        .blog-loading-spinner {
+            text-align: center;
+            padding: 60px;
+            font-size: 1.2em;
+            color: #0b1b2e;
+        }
+
+        .blog-error-message {
+            background: #fff3cd;
+            border: 2px solid #c3a167;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            color: #0b1b2e;
+        }
+
+        .blog-main-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 40px;
+        }
+
+        .blog-content-area {
+            min-width: 0;
+        }
+
+        .blog-filters-bar {
+            background: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .blog-search-box {
+            flex: 1;
+            min-width: 250px;
+            position: relative;
+        }
+
+        .blog-search-input {
             width: 100%;
+            padding: 12px 40px 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 5px;
+            font-size: 0.95em;
+            transition: border-color 0.3s;
+        }
+
+        .blog-search-input:focus {
+            outline: none;
+            border-color: #c3a167;
+        }
+
+        .blog-search-icon {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #c3a167;
+            font-size: 1.2em;
+        }
+
+        .blog-sort-dropdown {
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 5px;
+            background: #fff;
+            cursor: pointer;
+            font-size: 0.95em;
+            color: #0b1b2e;
+        }
+
+        .blog-posts-grid {
+            display: grid;
+            gap: 30px;
+        }
+
+        .blog-post-card {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            cursor: pointer;
+        }
+
+        .blog-post-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 25px rgba(0,0,0,0.15);
+        }
+
+        .blog-post-image-wrapper {
+            position: relative;
+            overflow: hidden;
+            background: #e0e0e0;
             height: 250px;
         }
 
-        .header-content h1 {
-            font-size: 2.5rem;
+        .blog-post-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
         }
 
-        .detail-info h1 {
-            font-size: 2rem;
+        .blog-post-card:hover .blog-post-image {
+            transform: scale(1.05);
         }
-    }
-</style>
+
+        .blog-post-featured-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: #c3a167;
+            color: #fff;
+            padding: 5px 12px;
+            border-radius: 3px;
+            font-size: 0.75em;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .blog-post-content-wrapper {
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .blog-post-meta-top {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .blog-post-category {
+            background: #0b1b2e;
+            color: #c3a167;
+            padding: 6px 14px;
+            border-radius: 3px;
+            font-size: 0.8em;
+            font-weight: 600;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .blog-post-date {
+            color: #666;
+            font-size: 0.9em;
+            white-space: nowrap;
+        }
+
+        .blog-post-title {
+            font-size: 1.8em;
+            color: #0b1b2e;
+            margin-bottom: 15px;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .blog-post-excerpt {
+            color: #444;
+            margin-bottom: 15px;
+            flex-grow: 1;
+            line-height: 1.7;
+            font-size: 0.95em;
+        }
+
+        .blog-post-tags-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .blog-post-tag-badge {
+            background: #f5f5f5;
+            color: #0b1b2e;
+            padding: 5px 12px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: 500;
+            border: 1px solid #e0e0e0;
+        }
+
+        .blog-post-meta-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 15px;
+            border-top: 1px solid #e0e0e0;
+            margin-top: auto;
+        }
+
+        .blog-post-author-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex: 1;
+        }
+
+        .blog-post-author-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #c3a167;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.85em;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .blog-post-author-name {
+            font-weight: 600;
+            color: #0b1b2e;
+            font-size: 0.95em;
+        }
+
+        .blog-post-read-time {
+            color: #666;
+            font-size: 0.85em;
+            white-space: nowrap;
+        }
+
+        .blog-sidebar {
+            position: sticky;
+            top: 20px;
+            height: fit-content;
+        }
+
+        .blog-sidebar-widget {
+            background: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .blog-widget-title {
+            color: #0b1b2e;
+            font-size: 1.4em;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid #c3a167;
+            font-weight: 700;
+        }
+
+        .blog-categories-list {
+            list-style: none;
+        }
+
+        .blog-category-item {
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: padding-left 0.3s;
+        }
+
+        .blog-category-item:hover {
+            padding-left: 10px;
+            color: #c3a167;
+        }
+
+        .blog-category-item.blog-active-category {
+            color: #c3a167;
+            font-weight: 600;
+        }
+
+        .blog-category-name {
+            font-weight: 500;
+        }
+
+        .blog-category-count {
+            background: #0b1b2e;
+            color: #c3a167;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+
+        .blog-tags-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .blog-tag-item {
+            background: #f5f5f5;
+            color: #0b1b2e;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .blog-tag-item:hover, .blog-tag-item.blog-active-tag {
+            background: #0b1b2e;
+            color: #c3a167;
+            border-color: #c3a167;
+        }
+
+        .blog-recent-posts-list {
+            list-style: none;
+        }
+
+        .blog-recent-post-item {
+            padding: 15px 0;
+            border-bottom: 1px solid #f0f0f0;
+            cursor: pointer;
+        }
+
+        .blog-recent-post-item:last-child {
+            border-bottom: none;
+        }
+
+        .blog-recent-post-title {
+            color: #0b1b2e;
+            font-size: 0.95em;
+            font-weight: 600;
+            margin-bottom: 5px;
+            line-height: 1.4;
+            transition: color 0.3s;
+        }
+
+        .blog-recent-post-item:hover .blog-recent-post-title {
+            color: #c3a167;
+        }
+
+        .blog-recent-post-date {
+            color: #888;
+            font-size: 0.8em;
+        }
+
+        .blog-pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-top: 50px;
+        }
+
+        .blog-pagination-btn {
+            padding: 10px 18px;
+            border: 2px solid #0b1b2e;
+            background: #fff;
+            color: #0b1b2e;
+            cursor: pointer;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .blog-pagination-btn:hover {
+            background: #0b1b2e;
+            color: #c3a167;
+        }
+
+        .blog-pagination-btn.blog-active-page {
+            background: #c3a167;
+            border-color: #c3a167;
+            color: #fff;
+        }
+
+        .blog-pagination-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .blog-newsletter-widget {
+            background: linear-gradient(135deg, #0b1b2e 0%, #1a2f45 100%);
+            color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .blog-newsletter-title {
+            color: #fff;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+
+        .blog-newsletter-text {
+            color: #c3a167;
+            margin-bottom: 20px;
+            font-size: 0.95em;
+        }
+
+        .blog-newsletter-form {
+            display: flex;
+            gap: 10px;
+        }
+
+        .blog-newsletter-input {
+            flex: 1;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 0.95em;
+        }
+
+        .blog-newsletter-submit {
+            padding: 12px 25px;
+            background: #c3a167;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .blog-newsletter-submit:hover {
+            background: #b59157;
+        }
+
+        .blog-no-results {
+            text-align: center;
+            padding: 60px 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .blog-no-results-title {
+            color: #0b1b2e;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .blog-no-results-text {
+            color: #666;
+        }
+
+        @media (max-width: 1024px) {
+            .blog-main-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .blog-sidebar {
+                position: static;
+            }
+
+            .blog-post-card {
+                grid-template-columns: 280px 1fr;
+            }
+
+            .blog-post-image-wrapper {
+                height: 220px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .blog-hero-title {
+                font-size: 2em;
+            }
+
+            .blog-hero-section {
+                padding: 40px 20px;
+            }
+
+            .blog-post-card {
+                grid-template-columns: 1fr;
+            }
+
+            .blog-post-image-wrapper {
+                height: 250px;
+                width: 100%;
+            }
+
+            .blog-post-title {
+                font-size: 1.5em;
+            }
+
+            .blog-filters-bar {
+                flex-direction: column;
+            }
+
+            .blog-search-box {
+                width: 100%;
+            }
+
+            .blog-sort-dropdown {
+                width: 100%;
+            }
+
+            .blog-newsletter-form {
+                flex-direction: column;
+            }
+
+            .blog-post-content-wrapper {
+                padding: 20px;
+            }
+
+            .blog-post-meta-bottom {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .blog-hero-title {
+                font-size: 1.5em;
+            }
+
+            .blog-hero-subtitle {
+                font-size: 1em;
+            }
+
+            .blog-post-title {
+                font-size: 1.3em;
+            }
+
+            .blog-container {
+                padding: 20px 10px;
+            }
+
+            .blog-post-card {
+                margin-bottom: 20px;
+            }
+
+            .blog-pagination {
+                flex-wrap: wrap;
+                gap: 5px;
+            }
+
+            .blog-pagination-btn {
+                padding: 8px 12px;
+                font-size: 0.9em;
+            }
+        }
+    </style>
 </head>
-
-  <body>
-
-    <!-- ***** Preloader Start ***** -->
-    <div id="preloader">
-        <div class="jumper">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-    </div>  
-    <!-- ***** Preloader End ***** -->
-
-    <!-- Header -->
-     
-    
-    <header class="">
-      <nav class="navbar navbar-expand-lg">
-        <div class="container">
-          <a class="navbar-brand" href="index.html">
-            <img src="assets/images/logo.png" alt="Vishal Chaudhary's Law Firm">
-          </a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item active">
-                <a class="nav-link" href="#top">Home <span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
-              <li class="nav-item dropdown position-static">
-                <a class="nav-link dropdown-toggle" href="services.html" id="servicesDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Our Services</a>
-                <ul class="dropdown-menu animated-services" aria-labelledby="servicesDropdown">
-                  <li><a class="dropdown-item" href="#services">Corporate Law</a></li>
-                  <li><a class="dropdown-item" href="#services">Civil Litigation</a></li>
-                  <li><a class="dropdown-item" href="#services">Family Law</a></li>
-                  <li><a class="dropdown-item" href="#services">Criminal Defense</a></li>
-                  <li><a class="dropdown-item" href="#services">Real Estate & Property</a></li>
-                  <li><a class="dropdown-item" href="#services">Tax Law & Planning</a></li>
-                  <li><a class="dropdown-item" href="#services">Employment Law</a></li>
-                  <li><a class="dropdown-item" href="#services">Wills & Inheritance</a></li>
-                  <li><a class="dropdown-item" href="#services">Other Legal Matters</a></li>
-                </ul>
-              </li>
-              <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
-              <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </header>
-
-    <!-- Page Content -->
-   
-  <!-- Blog Listing Page -->
-  <div id="listingPage" class="">
-   
-
-      <div class="container">
-          <div class="blog-grid" id="blogGrid">
-              <!-- Blogs will be inserted here by JavaScript -->
-          </div>
-
-          <aside class="sidebar">
-              <!-- Categories -->
-              <div class="sidebar-section categories slide-in-right">
-                  <h3 class="sidebar-title">🏷️ Categories</h3>
-                  <div class="category-list" id="categoryList"></div>
-              </div>
-
-              <!-- Featured Posts -->
-              <div class="sidebar-section featured slide-in-right" style="animation-delay: 0.1s">
-                  <h3 class="sidebar-title">⭐ Featured Posts</h3>
-                  <div id="featuredPosts"></div>
-              </div>
-
-              <!-- Most Read -->
-              <div class="sidebar-section slide-in-right" style="animation-delay: 0.2s">
-                  <h3 class="sidebar-title">📈 Most Read</h3>
-                  <div id="mostRead"></div>
-              </div>
-          </aside>
-      </div>
-  </div>
-
-  <!-- Blog Detail Page -->
-  <div id="detailPage" class="hidden">
-      <div class="detail-header" id="detailHeader">
-          <img id="detailHeroImage" src="" alt="">
-          <div class="detail-overlay"></div>
-          <button class="back-button" onclick="showListing()">← Back to Blog</button>
-          <div class="detail-info">
-              <div style="max-width: 1200px; margin: 0 auto;">
-                  <span class="category-badge" id="detailCategory"></span>
-                  <h1 id="detailTitle"></h1>
-                  <div class="detail-meta" id="detailMeta"></div>
-              </div>
-          </div>
-      </div>
-
-      <div class="article-content">
-          <article class="article-main">
-              <div class="article-text" id="articleContent">
-                  <!-- Dynamic content will be inserted here -->
-              </div>
-
-              <div class="labels-section">
-                  <h4>Labels:</h4>
-                  <div class="labels-container" id="detailLabels"></div>
-              </div>
-          </article>
-
-          <aside class="sidebar">
-              <!-- Recent Posts -->
-              <div class="sidebar-section slide-in-right">
-                  <h3 class="sidebar-title">📚 Recent Posts</h3>
-                  <div id="recentPosts"></div>
-              </div>
-
-              <!-- Categories in detail page -->
-              <div class="sidebar-section categories slide-in-right" style="animation-delay: 0.1s">
-                  <h3 class="sidebar-title">🏷️ Categories</h3>
-                  <div class="labels-container" id="detailCategories"></div>
-              </div>
-          </aside>
-      </div>
-  </div>
-
-  <script>
-      const blogs = [
-          {
-              id: 1,
-              title: "Paradise Found: Discovering Hidden Beaches",
-              excerpt: "Explore the most breathtaking hidden beaches where crystal clear waters meet pristine white sands...",
-              category: "Travel",
-              author: "Maya Rodriguez",
-              date: "Nov 20, 2024",
-              image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800",
-              labels: ["Beach", "Adventure", "Nature"],
-              readTime: "5 min read",
-              featured: true,
-              views: 2340,
-              content: {
-                  sections: [
-                      {
-                          type: "paragraph",
-                          text: "The tropical paradise has always been a source of inspiration for travelers and adventurers alike. With its pristine beaches, crystal-clear waters, and lush greenery, it offers an escape from the mundane and a connection to nature that is increasingly rare in our modern world."
-                      },
-                      {
-                          type: "heading",
-                          text: "The Journey Begins"
-                      },
-                      {
-                          type: "paragraph",
-                          text: "Beyond the popular tourist destinations lie countless hidden treasures waiting to be discovered. These secluded spots offer tranquility, authentic experiences, and a chance to connect with local cultures in meaningful ways."
-                      },
-                      {
-                          type: "image",
-                          src: "https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?w=800",
-                          alt: "Tropical scenery"
-                      },
-                      {
-                          type: "heading",
-                          text: "Discovering Hidden Gems"
-                      },
-                      {
-                          type: "paragraph",
-                          text: "From secret beaches accessible only by boat to mountain trails that lead to breathtaking vistas, the adventure never ends. Each location tells a story of natural beauty and untouched landscapes."
-                      },
-                      {
-                          type: "quote",
-                          text: "The ocean stirs the heart, inspires the imagination, and brings eternal joy to the soul."
-                      },
-                      {
-                          type: "heading",
-                          text: "Embracing the Island Life"
-                      },
-                      {
-                          type: "paragraph",
-                          text: "Living in harmony with nature is not just a philosophy but a way of life in the tropics. The gentle rhythm of the waves, the warm tropical breeze, and the vibrant colors of sunset create a symphony that nourishes the soul."
-                      },
-                      {
-                          type: "takeaways",
-                          items: [
-                              "Embrace the natural beauty around you",
-                              "Find peace in the rhythm of the ocean",
-                              "Connect with local cultures and traditions",
-                              "Live sustainably and protect the environment"
-                          ]
-                      },
-                      {
-                          type: "paragraph",
-                          text: "Whether you're seeking adventure, relaxation, or spiritual growth, the tropical paradise offers something for everyone. The memories created here will last a lifetime, and the lessons learned will continue to inspire long after you've returned home."
-                      }
-                  ]
-              }
-          },
-          {
-              id: 2,
-              title: "Tropical Cuisine: A Culinary Journey",
-              excerpt: "Dive into the vibrant flavors of tropical cuisine, from fresh seafood to exotic fruits...",
-              category: "Food",
-              author: "Carlos Santos",
-              date: "Nov 18, 2024",
-              image: "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=800",
-              labels: ["Cuisine", "Culture", "Recipes"],
-              readTime: "7 min read",
-              featured: false,
-              views: 1890,
-              content: {
-                  sections: [
-                      {
-                          type: "paragraph",
-                          text: "Tropical cuisine is a celebration of fresh ingredients, bold flavors, and cultural traditions passed down through generations. Each dish tells a story of the land, sea, and people who call these islands home."
-                      },
-                      {
-                          type: "heading",
-                          text: "The Flavors of the Tropics"
-                      },
-                      {
-                          type: "paragraph",
-                          text: "Fresh seafood caught daily, exotic fruits bursting with sweetness, and aromatic spices that awaken the senses—this is the essence of tropical cooking. The cuisine reflects the diversity of cultures that have influenced these regions over centuries."
-                      },
-                      {
-                          type: "image",
-                          src: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=800",
-                          alt: "Tropical food"
-                      },
-                      {
-                          type: "heading",
-                          text: "Traditional Cooking Methods"
-                      },
-                      {
-                          type: "paragraph",
-                          text: "Traditional cooking methods like pit roasting, coconut milk simmering, and banana leaf wrapping create flavors that cannot be replicated. These techniques preserve nutrients while enhancing natural tastes."
-                      },
-                      {
-                          type: "quote",
-                          text: "Food is not just sustenance; it's a connection to our heritage and a way to share our culture with the world."
-                      },
-                      {
-                          type: "heading",
-                          text: "Must-Try Dishes"
-                      },
-                      {
-                          type: "takeaways",
-                          items: [
-                              "Fresh ceviche with local catch",
-                              "Grilled fish with tropical salsa",
-                              "Coconut curry with seasonal vegetables",
-                              "Fresh fruit platters with exotic varieties"
-                          ]
-                      },
-                      {
-                          type: "paragraph",
-                          text: "Exploring tropical cuisine is an adventure for your palate. Each meal is an opportunity to experience new flavors, learn about different cultures, and appreciate the bounty that nature provides."
-                      }
-                  ]
-              }
-          },
-          {
-              id: 3,
-              title: "Island Wellness: Mind, Body, Spirit",
-              excerpt: "Discover how island living promotes wellness through natural healing and mindful practices...",
-              category: "Wellness",
-              author: "Lani Kealoha",
-              date: "Nov 15, 2024",
-              image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=800",
-              labels: ["Health", "Mindfulness", "Lifestyle"],
-              readTime: "6 min read",
-              featured: true,
-              views: 3120,
-              content: {
-                  sections: [
-                      {
-                          type: "paragraph",
-                          text: "Island wellness is more than just a trend—it's a way of life that emphasizes harmony between mind, body, and spirit. The natural environment provides the perfect backdrop for healing and personal growth."
-                      },
-                      {
-                          type: "heading",
-                          text: "Natural Healing Practices"
-                      },
-                      {
-                          type: "paragraph",
-                          text: "Island cultures have long understood the healing power of nature. From herbal remedies using local plants to ocean therapy and sun meditation, traditional practices offer holistic approaches to wellness that modern science is now beginning to validate."
-                      },
-                      {
-                          type: "image",
-                          src: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800",
-                          alt: "Wellness practice"
-                      },
-                      {
-                          type: "heading",
-                          text: "Mindful Living"
-                      },
-                      {
-                          type: "paragraph",
-                          text: "The slower pace of island life encourages mindfulness and presence. When you're surrounded by natural beauty, it becomes easier to let go of stress, focus on the present moment, and find inner peace."
-                      },
-                      {
-                          type: "quote",
-                          text: "Wellness is not the absence of illness, but the presence of vitality, purpose, and connection."
-                      },
-                      {
-                          type: "heading",
-                          text: "Daily Wellness Rituals"
-                      },
-                      {
-                          type: "takeaways",
-                          items: [
-                              "Morning meditation by the ocean",
-                              "Fresh, local, whole foods",
-                              "Regular movement and outdoor activities",
-                              "Connection with community and nature"
-                          ]
-                      },
-                      {
-                          type: "paragraph",
-                          text: "Embracing island wellness principles can transform your life, regardless of where you live. The key is bringing the essence of island living—simplicity, connection, and natural rhythms—into your daily routine."
-                      }
-                  ]
-              }
-          },
-          {
-              id: 4,
-              title: "Ocean Conservation: Our Responsibility",
-              excerpt: "Learn about the importance of protecting our oceans and how you can make a difference...",
-              category: "Environment",
-              author: "Dr. James Martinez",
-              date: "Nov 12, 2024",
-              image: "https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=800",
-              labels: ["Conservation", "Ocean", "Sustainability"],
-              readTime: "8 min read",
-              featured: false,
-              views: 2560,
-              content: {
-                  sections: [
-                      {
-                          type: "paragraph",
-                          text: "Our oceans cover over 70% of the Earth's surface and are home to an incredible diversity of life. Yet, they face unprecedented threats from pollution, climate change, and overfishing. Protecting these vital ecosystems is not just important—it's essential for our survival."
-                      },
-                      {
-                          type: "heading",
-                          text: "The Current State of Our Oceans"
-                      },
-                      {
-                          type: "paragraph",
-                          text: "Marine pollution, coral reef bleaching, and declining fish populations are urgent issues that require immediate action. Every year, millions of tons of plastic enter our oceans, threatening marine life and entire ecosystems."
-                      },
-                      {
-                          type: "image",
-                          src: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800",
-                          alt: "Ocean conservation"
-                      },
-                      {
-                          type: "heading",
-                          text: "What We Can Do"
-                      },
-                      {
-                          type: "paragraph",
-                          text: "Individual actions matter. Reducing single-use plastics, supporting sustainable seafood, participating in beach cleanups, and spreading awareness are all ways we can contribute to ocean conservation. Every small action adds up to create meaningful change."
-                      },
-                      {
-                          type: "quote",
-                          text: "The ocean is not a resource to be exploited, but a treasure to be protected for future generations."
-                      },
-                      {
-                          type: "heading",
-                          text: "Key Actions for Ocean Protection"
-                      },
-                      {
-                          type: "takeaways",
-                          items: [
-                              "Reduce plastic consumption and waste",
-                              "Support marine protected areas",
-                              "Choose sustainable seafood options",
-                              "Participate in conservation efforts"
-                          ]
-                      },
-                      {
-                          type: "paragraph",
-                          text: "The future of our oceans depends on the choices we make today. By working together—individuals, communities, businesses, and governments—we can ensure that these magnificent ecosystems thrive for generations to come."
-                      }
-                  ]
-              }
-          }
-      ];
-
-      const categories = ["Travel", "Food", "Wellness", "Environment", "Culture", "Adventure"];
-
-      function renderBlogs() {
-          const blogGrid = document.getElementById('blogGrid');
-          blogGrid.innerHTML = '';
-          
-          blogs.forEach((blog, index) => {
-              const card = document.createElement('div');
-              card.className = 'blog-card fade-in';
-              card.style.animationDelay = `${index * 0.1}s`;
-              card.onclick = () => showDetail(blog.id);
-              
-              card.innerHTML = `
-                  <div class="blog-image">
-                      <img src="${blog.image}" alt="${blog.title}">
-                      ${blog.featured ? '<div class="featured-badge">⭐ Featured</div>' : ''}
-                  </div>
-                  <div class="blog-content">
-                      <div class="blog-meta">
-                          <span class="category-badge">${blog.category}</span>
-                          <span class="read-time">🕐 ${blog.readTime}</span>
-                      </div>
-                      <h2 class="blog-title">${blog.title}</h2>
-                      <p class="blog-excerpt">${blog.excerpt}</p>
-                      <div class="blog-footer">
-                          <div class="author-date">
-                              <span>👤 ${blog.author}</span>
-                              <span>📅 ${blog.date}</span>
-                          </div>
-                          <span>→</span>
-                      </div>
-                  </div>
-              `;
-              
-              blogGrid.appendChild(card);
-              setTimeout(() => card.style.opacity = '1', index * 100);
-          });
-      }
-
-      function renderCategories() {
-          const categoryList = document.getElementById('categoryList');
-          categoryList.innerHTML = '';
-          
-          categories.forEach(cat => {
-              const item = document.createElement('div');
-              item.className = 'category-item';
-              item.innerHTML = `<span>${cat}</span><span>→</span>`;
-              categoryList.appendChild(item);
-          });
-      }
-
-      function renderFeaturedPosts() {
-          const container = document.getElementById('featuredPosts');
-          const featured = blogs.filter(b => b.featured);
-          
-          container.innerHTML = featured.map(post => `
-              <div class="recent-post" onclick="showDetail(${post.id})">
-                  <img src="${post.image}" alt="${post.title}" class="recent-image">
-                  <div>
-                      <div class="recent-title">${post.title}</div>
-                      <div class="recent-date">${post.date}</div>
-                  </div>
-              </div>
-          `).join('');
-      }
-
-      function renderMostRead() {
-          const container = document.getElementById('mostRead');
-          const sorted = [...blogs].sort((a, b) => b.views - a.views).slice(0, 3);
-          
-          container.innerHTML = sorted.map((post, index) => `
-              <div class="most-read-item" onclick="showDetail(${post.id})">
-                  <div class="read-number">${index + 1}</div>
-                  <div>
-                      <div class="recent-title">${post.title}</div>
-                      <div class="read-views">${post.views.toLocaleString()} views</div>
-                  </div>
-              </div>
-          `).join('');
-      }
-
-      function showDetail(blogId) {
-          const blog = blogs.find(b => b.id === blogId);
-          if (!blog) return;
-
-          document.getElementById('listingPage').classList.add('hidden');
-          document.getElementById('detailPage').classList.remove('hidden');
-
-          document.getElementById('detailHeroImage').src = blog.image;
-          document.getElementById('detailCategory').textContent = blog.category;
-          document.getElementById('detailTitle').textContent = blog.title;
-          
-          document.getElementById('detailMeta').innerHTML = `
-              <span>👤 ${blog.author}</span>
-              <span>📅 ${blog.date}</span>
-              <span>🕐 ${blog.readTime}</span>
-          `;
-
-          document.getElementById('detailLabels').innerHTML = blog.labels.map(label => 
-              `<span class="label-tag">#${label}</span>`
-          ).join('');
-
-          // Render article content dynamically
-          const articleContent = document.getElementById('articleContent');
-          if (blog.content && blog.content.sections) {
-              let contentHTML = `<p style="font-size: 1.3rem; color: #4b5563; font-weight: 500; margin-bottom: 2rem;">${blog.excerpt}</p>`;
-              
-              blog.content.sections.forEach(section => {
-                  switch(section.type) {
-                      case 'paragraph':
-                          contentHTML += `<p>${section.text}</p>`;
-                          break;
-                      case 'heading':
-                          contentHTML += `<h2>${section.text}</h2>`;
-                          break;
-                      case 'image':
-                          contentHTML += `<img src="${section.src}" alt="${section.alt || ''}" class="article-image">`;
-                          break;
-                      case 'quote':
-                          contentHTML += `<blockquote class="quote">"${section.text}"</blockquote>`;
-                          break;
-                      case 'takeaways':
-                          contentHTML += `<div class="takeaways">
-                              <h3>Key Takeaways</h3>
-                              <ul>
-                                  ${section.items.map(item => `<li><span>•</span> ${item}</li>`).join('')}
-                              </ul>
-                          </div>`;
-                          break;
-                  }
-              });
-              
-              articleContent.innerHTML = contentHTML;
-          } else {
-              // Fallback if content structure is missing
-              articleContent.innerHTML = `<p style="font-size: 1.3rem; color: #4b5563; font-weight: 500; margin-bottom: 2rem;">${blog.excerpt}</p>
-                  <p>Full article content coming soon...</p>`;
-          }
-
-          // Render recent posts
-          const recentPosts = blogs.filter(b => b.id !== blogId).slice(0, 3);
-          document.getElementById('recentPosts').innerHTML = recentPosts.map(post => `
-              <div class="recent-post" onclick="showDetail(${post.id})">
-                  <img src="${post.image}" alt="${post.title}" class="recent-image">
-                  <div>
-                      <div class="recent-title">${post.title}</div>
-                      <div class="recent-date">${post.date}</div>
-                  </div>
-              </div>
-          `).join('');
-
-          // Render categories in detail page
-          document.getElementById('detailCategories').innerHTML = categories.map(cat => 
-              `<span class="label-tag">${cat}</span>`
-          ).join('');
-
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
-
-      function showListing() {
-          document.getElementById('detailPage').classList.add('hidden');
-          document.getElementById('listingPage').classList.remove('hidden');
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
-
-      // Initialize
-      renderBlogs();
-      renderCategories();
-      renderFeaturedPosts();
-      renderMostRead();
-  </script>
-
-    <!-- <div class="partners">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="owl-partners owl-carousel">
-              <div class="partner-item">
-                <img src="assets/images/client-01.png" alt="">
-              </div>
+<body>
+    <div class="blog-container">
+        <div class="blog-hero-section">
+            <h1 class="blog-hero-title">Legal Insights & Articles</h1>
+            <p class="blog-hero-subtitle">Expert Analysis on Law, Justice, and Legal Practice</p>
+            <div id="sampleDataNotice" style="margin-top: 20px; background: rgba(255,255,255,0.1); padding: 15px; border-radius: 5px; font-size: 0.95em; color: rgba(255,255,255,0.9); display: none;">
+                📝 <strong>Sample Posts:</strong> These are demo articles. <a href="#" onclick="alert('Go to Sanity Studio at http://localhost:3333 to add your own content'); return false;" style="color: #c3a167; text-decoration: underline;">Add your own posts</a> in Sanity Studio.
             </div>
-          </div>
         </div>
-      </div>
-    </div> -->
 
+        <div class="blog-main-wrapper">
+            <div class="blog-content-area">
+                <div class="blog-filters-bar">
+                    <div class="blog-search-box">
+                        <input type="text" class="blog-search-input" placeholder="Search articles..." id="blogSearchInput">
+                        <span class="blog-search-icon">🔍</span>
+                    </div>
+                    <select class="blog-sort-dropdown" id="blogSortSelect">
+                        <option value="recent">Most Recent</option>
+                        <option value="popular">Most Popular</option>
+                        <option value="oldest">Oldest First</option>
+                    </select>
+                </div>
 
-    <!-- Footer Starts Here -->
-      <footer>
-      <div class="">
-        <div class="row">
-          <div class="col-md-4 footer-item">
-            <div class="footer-logo"><img src="/assets/images/footer-logo.png" alt="" srcset=""></div>
-            <p class="pt-2"><b>Vishal Chaudhary’s Law Office</b> is a professional legal practice, established in 2009.</p>
-            <ul class="social-icons">
-              <li><a rel="nofollow" href="#"><i class="fa fa-facebook"></i></a></li>
-              <li><a href="https://www.instagram.com/vishalchaudharyslawoffice/"><i class="fa fa-instagram"></i></a></li>
-              <li><a href="https://www.linkedin.com/company/vishal-chaudharys-law-office"><i class="fa fa-linkedin"></i></a></li>
-              <li><a href="https://x.com/vclawoffice"><i class="fa fa-x"><b>X</b></i></a></li>
-            </ul>
-          </div>
-          <div class="col-md-4 footer-item">
-            <h4>Contact Info</h4>
-            <ul class="menu-list">
-              <li><a href="#contact">Phone: +91 96670 61619, +91 98114 02715</a></li>
-              <li><a href="#contact">Email: info@vishalchaudharyslawoffice.com</a></li>
-              <li><a href="#contact">Address: Chamber Y-38, Civil Wing, Tis Hazari Court, New Delhi-110054</a></li>
-              <li><a href="#">Mon - Fri: 10:00am - 7:00pm</a></li>
-              <li><a href="#">Sat: 10:00am - 6:00pm</a></li>
-            </ul>
-          </div>
-          <div class="col-md-2 footer-item">
-            <h4>Quick Links</h4>
-            <ul class="menu-list">
-              <li><a href="#about">About</a></li>
-              <li><a href="#services">Practice Areas</a></li>
-              <li><a href="#attorneys">Our Attorneys</a></li>
-              <li><a href="#testimonials">Testimonials</a></li>
-              <li><a href="#blog">Blog</a></li>
-            </ul>
-          </div>
-          <div class="col-md-2 footer-item last-item">
-            <h4>Useful Links</h4>
-            <ul class="menu-list">
-              <li><a href="#contact">Corporate Law</a></li>
-              <li><a href="#contact">Civil Litigation</a></li>
-              <li><a href="#contact">Family Law</a></li>
-              <li><a href="#">Criminal Defence</a></li>
-              <li><a href="#">Other Legal Matters</a></li>
-            </ul>
-          </div>
-        
+                <div id="blogLoadingSpinner" class="blog-loading-spinner" style="display:none;">
+                    Loading articles...
+                </div>
+
+                <div id="blogErrorMessage" class="blog-error-message" style="display:none;"></div>
+
+                <div class="blog-posts-grid" id="blogPostsGrid">
+                    <!-- Blog posts will be dynamically inserted here -->
+                </div>
+
+                <div class="blog-pagination" id="blogPagination">
+                    <!-- Pagination will be generated dynamically -->
+                </div>
+            </div>
+
+            <aside class="blog-sidebar">
+                <div class="blog-sidebar-widget">
+                    <h3 class="blog-widget-title">Categories</h3>
+                    <ul class="blog-categories-list" id="blogCategoriesList">
+                        <!-- Categories will be dynamically inserted -->
+                    </ul>
+                </div>
+
+                <div class="blog-sidebar-widget blog-newsletter-widget">
+                    <h3 class="blog-newsletter-title">Subscribe to Newsletter</h3>
+                    <p class="blog-newsletter-text">Get the latest legal insights delivered to your inbox</p>
+                    <form class="blog-newsletter-form" id="blogNewsletterForm">
+                        <input type="email" class="blog-newsletter-input" placeholder="Your email address" required>
+                        <button type="submit" class="blog-newsletter-submit">Subscribe</button>
+                    </form>
+                </div>
+
+                <div class="blog-sidebar-widget">
+                    <h3 class="blog-widget-title">Popular Tags</h3>
+                    <div class="blog-tags-cloud" id="blogTagsCloud">
+                        <!-- Tags will be dynamically inserted -->
+                    </div>
+                </div>
+
+                <div class="blog-sidebar-widget">
+                    <h3 class="blog-widget-title">Recent Posts</h3>
+                    <ul class="blog-recent-posts-list" id="blogRecentPostsList">
+                        <!-- Recent posts will be dynamically inserted -->
+                    </ul>
+                </div>
+            </aside>
         </div>
-      </div>
-    </footer>
-    
-    <div class="sub-footer">
-      <div class="container">
-        <div class="row">
-         <div class="col-md-12">
-            <p>Copyright &copy; <span id="year"></span> Vishal Chaudhary's Law Firm Attorneys & Legal Consultants</p>
-          </div>
-        </div>
-      </div>
     </div>
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // ============================================
+        // CONFIGURATION - SANITY CREDENTIALS
+        // ============================================
+        const SANITY_CONFIG = {
+            projectId: 'vmnkeya7', // Your Sanity project ID
+            dataset: 'production', // Your dataset name
+            apiVersion: '2024-01-26', // API version
+            useCdn: true // Use CDN for faster response
+        };
 
-    <!-- Additional Scripts -->
-    <script src="assets/js/custom.js"></script>
-    <script src="assets/js/owl.js"></script>
-    <script src="assets/js/slick.js"></script>
-    <script src="assets/js/accordions.js"></script>
+        // ============================================
+        // SANITY CLIENT SETUP
+        // ============================================
+        const SANITY_BASE_URL = `https://${SANITY_CONFIG.projectId}.api.sanity.io/v${SANITY_CONFIG.apiVersion}/data/query/${SANITY_CONFIG.dataset}`;
 
-    <script language = "text/Javascript"> 
-      cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
-      function clearField(t){                   //declaring the array outside of the
-      if(! cleared[t.id]){                      // function makes it static and global
-          cleared[t.id] = 1;  // you could use true and false, but that's more typing
-          t.value='';         // with more chance of typos
-          t.style.color='#fff';
-          }
-      }
+        // Helper function to build Sanity image URLs
+        function buildSanityImageUrl(imageRef, width = 600, height = 400) {
+            if (!imageRef) return 'https://via.placeholder.com/600x400?text=No+Image';
+            
+            // Handle direct URLs
+            if (typeof imageRef === 'string') {
+                if (imageRef.startsWith('http')) {
+                    return imageRef;
+                }
+            }
+            
+            // Extract URL from asset object
+            let url = null;
+            if (imageRef?.asset?.url) {
+                url = imageRef.asset.url;
+            } else if (imageRef?.url) {
+                url = imageRef.url;
+            }
+            
+            if (url) {
+                // Add width and height parameters for optimization
+                const separator = url.includes('?') ? '&' : '?';
+                return `${url}${separator}w=${width}&h=${height}&fit=crop`;
+            }
+            
+            // Fallback to placeholder
+            return 'https://via.placeholder.com/600x400?text=Legal+Article';
+        }
+
+        // Helper function to format dates
+        function formatDate(dateString) {
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            return new Date(dateString).toLocaleDateString('en-US', options);
+        }
+
+        // Calculate read time based on content length
+        function calculateReadTime(content) {
+            if (!content) return '5 min read';
+            const wordsPerMinute = 200;
+            const textContent = typeof content === 'string' ? content : JSON.stringify(content);
+            const wordCount = textContent.split(/\s+/).length;
+            const minutes = Math.ceil(wordCount / wordsPerMinute);
+            return `${minutes} min read`;
+        }
+
+        // ============================================
+        // STATE MANAGEMENT
+        // ============================================
+        let blogState = {
+            allPosts: [],
+            filteredPosts: [],
+            categories: [],
+            tags: [],
+            currentPage: 1,
+            postsPerPage: 6,
+            selectedCategory: null,
+            selectedTag: null,
+            searchQuery: '',
+            sortBy: 'recent'
+        };
+
+        // ============================================
+        // SANITY QUERIES
+        // ============================================
+        
+        // GROQ query for fetching blog posts with complete data
+        const POSTS_QUERY = `*[_type == "post"] | order(publishedAt desc) {
+            _id,
+            title,
+            slug,
+            publishedAt,
+            excerpt,
+            body,
+            featured,
+            mainImage {
+                asset->{
+                    _id,
+                    url
+                }
+            },
+            "category": categories[0]->{
+                _id,
+                title,
+                slug
+            },
+            "categories": categories[]->{
+                _id,
+                title,
+                slug
+            },
+            "tags": tags[]->{
+                _id,
+                title,
+                slug
+            },
+            author->{
+                _id,
+                name,
+                image {
+                    asset->{
+                        _id,
+                        url
+                    }
+                }
+            }
+        }`;
+
+        // Query for categories with post counts
+        const CATEGORIES_QUERY = `*[_type == "category"] {
+            _id,
+            title,
+            slug,
+            description,
+            "count": count(*[_type == "post" && references(^._id)])
+        } | order(count desc)`;
+
+        // Query for tags
+        const TAGS_QUERY = `*[_type == "tag"] {
+            _id,
+            title,
+            slug
+        } | order(title asc)`;
+
+        // ============================================
+        // API FUNCTIONS
+        // ============================================
+        
+        async function fetchFromSanity(query) {
+            try {
+                const url = `${SANITY_BASE_URL}?query=${encodeURIComponent(query)}`;
+                const response = await fetch(url);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                return data.result;
+            } catch (error) {
+                console.error('Error fetching from Sanity:', error);
+                throw error;
+            }
+        }
+
+        async function loadBlogData() {
+            showLoading(true);
+            hideError();
+            
+            try {
+                // Fetch all data in parallel
+                const [posts, categories, tags] = await Promise.all([
+                    fetchFromSanity(POSTS_QUERY),
+                    fetchFromSanity(CATEGORIES_QUERY),
+                    fetchFromSanity(TAGS_QUERY)
+                ]);
+
+                blogState.allPosts = posts || [];
+                blogState.filteredPosts = posts || [];
+                blogState.categories = categories || [];
+                blogState.tags = tags || [];
+
+                // If no posts found, show demo data
+                if (!blogState.allPosts || blogState.allPosts.length === 0) {
+                    console.log('No posts found in Sanity. Showing sample data...');
+                    loadSampleData();
+                    return;
+                }
+
+                renderAllContent();
+            } catch (error) {
+                showError('Failed to load blog content. Showing sample data for demonstration.');
+                console.error('Error loading blog data:', error);
+                loadSampleData();
+            } finally {
+                showLoading(false);
+            }
+        }
+
+        // Sample data for demo/testing
+        function loadSampleData() {
+            // Show sample data notice
+            const notice = document.getElementById('sampleDataNotice');
+            if (notice) {
+                notice.style.display = 'block';
+            }
+
+            blogState.allPosts = [
+                {
+                    _id: '1',
+                    title: 'Understanding Employment Law Rights',
+                    slug: { current: 'understanding-employment-law-rights' },
+                    publishedAt: new Date().toISOString(),
+                    excerpt: 'Learn about your fundamental rights in the workplace and how employment law protects you.',
+                    body: 'Employment law covers a wide range of topics including discrimination, wage and hour issues...',
+                    featured: true,
+                    mainImage: {
+                        asset: { url: 'https://via.placeholder.com/600x400?text=Employment+Law' }
+                    },
+                    categories: [
+                        { _id: 'cat1', title: 'Employment Law', slug: { current: 'employment-law' } }
+                    ],
+                    tags: [
+                        { _id: 'tag1', title: 'Legal Rights', slug: { current: 'legal-rights' } },
+                        { _id: 'tag2', title: 'Employment', slug: { current: 'employment' } }
+                    ],
+                    author: {
+                        _id: 'author1',
+                        name: 'Vishal Chaudhary',
+                        image: { asset: { url: 'https://via.placeholder.com/100x100?text=VC' } }
+                    }
+                },
+                {
+                    _id: '2',
+                    title: 'Family Law Guide: Divorce and Custody',
+                    slug: { current: 'family-law-guide-divorce-custody' },
+                    publishedAt: new Date(Date.now() - 86400000).toISOString(),
+                    excerpt: 'A comprehensive guide to divorce proceedings, custody arrangements, and family law matters.',
+                    body: 'Family law is an important area that deals with relationships, marriage, divorce...',
+                    featured: false,
+                    mainImage: {
+                        asset: { url: 'https://via.placeholder.com/600x400?text=Family+Law' }
+                    },
+                    categories: [
+                        { _id: 'cat2', title: 'Family Law', slug: { current: 'family-law' } }
+                    ],
+                    tags: [
+                        { _id: 'tag3', title: 'Divorce', slug: { current: 'divorce' } },
+                        { _id: 'tag4', title: 'Custody', slug: { current: 'custody' } }
+                    ],
+                    author: {
+                        _id: 'author1',
+                        name: 'Vishal Chaudhary',
+                        image: { asset: { url: 'https://via.placeholder.com/100x100?text=VC' } }
+                    }
+                },
+                {
+                    _id: '3',
+                    title: 'Corporate Law Essentials',
+                    slug: { current: 'corporate-law-essentials' },
+                    publishedAt: new Date(Date.now() - 172800000).toISOString(),
+                    excerpt: 'Essential information about corporate law, business contracts, and company regulations.',
+                    body: 'Corporate law governs the formation and operation of corporations...',
+                    featured: true,
+                    mainImage: {
+                        asset: { url: 'https://via.placeholder.com/600x400?text=Corporate+Law' }
+                    },
+                    categories: [
+                        { _id: 'cat3', title: 'Business Law', slug: { current: 'business-law' } }
+                    ],
+                    tags: [
+                        { _id: 'tag5', title: 'Contracts', slug: { current: 'contracts' } },
+                        { _id: 'tag6', title: 'Compliance', slug: { current: 'compliance' } }
+                    ],
+                    author: {
+                        _id: 'author1',
+                        name: 'Vishal Chaudhary',
+                        image: { asset: { url: 'https://via.placeholder.com/100x100?text=VC' } }
+                    }
+                },
+                {
+                    _id: '4',
+                    title: 'Real Estate Property Laws Explained',
+                    slug: { current: 'real-estate-property-laws' },
+                    publishedAt: new Date(Date.now() - 259200000).toISOString(),
+                    excerpt: 'Everything you need to know about real estate transactions, property rights, and land laws.',
+                    body: 'Real estate law is crucial for anyone involved in property transactions...',
+                    featured: false,
+                    mainImage: {
+                        asset: { url: 'https://via.placeholder.com/600x400?text=Real+Estate' }
+                    },
+                    categories: [
+                        { _id: 'cat4', title: 'Real Estate Law', slug: { current: 'real-estate-law' } }
+                    ],
+                    tags: [
+                        { _id: 'tag7', title: 'Property', slug: { current: 'property' } },
+                        { _id: 'tag8', title: 'Transactions', slug: { current: 'transactions' } }
+                    ],
+                    author: {
+                        _id: 'author1',
+                        name: 'Vishal Chaudhary',
+                        image: { asset: { url: 'https://via.placeholder.com/100x100?text=VC' } }
+                    }
+                },
+                {
+                    _id: '5',
+                    title: 'Criminal Defense: Know Your Rights',
+                    slug: { current: 'criminal-defense-know-your-rights' },
+                    publishedAt: new Date(Date.now() - 345600000).toISOString(),
+                    excerpt: 'Understanding criminal defense and your legal rights when facing criminal charges.',
+                    body: 'If you are facing criminal charges, it is important to understand your rights...',
+                    featured: false,
+                    mainImage: {
+                        asset: { url: 'https://via.placeholder.com/600x400?text=Criminal+Defense' }
+                    },
+                    categories: [
+                        { _id: 'cat5', title: 'Criminal Law', slug: { current: 'criminal-law' } }
+                    ],
+                    tags: [
+                        { _id: 'tag9', title: 'Defense', slug: { current: 'defense' } },
+                        { _id: 'tag10', title: 'Rights', slug: { current: 'rights' } }
+                    ],
+                    author: {
+                        _id: 'author1',
+                        name: 'Vishal Chaudhary',
+                        image: { asset: { url: 'https://via.placeholder.com/100x100?text=VC' } }
+                    }
+                }
+            ];
+
+            blogState.filteredPosts = [...blogState.allPosts];
+
+            blogState.categories = [
+                { _id: 'cat1', title: 'Employment Law', slug: { current: 'employment-law' }, count: 1 },
+                { _id: 'cat2', title: 'Family Law', slug: { current: 'family-law' }, count: 1 },
+                { _id: 'cat3', title: 'Business Law', slug: { current: 'business-law' }, count: 1 },
+                { _id: 'cat4', title: 'Real Estate Law', slug: { current: 'real-estate-law' }, count: 1 },
+                { _id: 'cat5', title: 'Criminal Law', slug: { current: 'criminal-law' }, count: 1 }
+            ];
+
+            blogState.tags = [
+                { _id: 'tag1', title: 'Legal Rights', slug: { current: 'legal-rights' } },
+                { _id: 'tag2', title: 'Employment', slug: { current: 'employment' } },
+                { _id: 'tag3', title: 'Divorce', slug: { current: 'divorce' } },
+                { _id: 'tag4', title: 'Custody', slug: { current: 'custody' } },
+                { _id: 'tag5', title: 'Contracts', slug: { current: 'contracts' } },
+                { _id: 'tag6', title: 'Compliance', slug: { current: 'compliance' } },
+                { _id: 'tag7', title: 'Property', slug: { current: 'property' } },
+                { _id: 'tag8', title: 'Transactions', slug: { current: 'transactions' } },
+                { _id: 'tag9', title: 'Defense', slug: { current: 'defense' } },
+                { _id: 'tag10', title: 'Rights', slug: { current: 'rights' } }
+            ];
+
+            renderAllContent();
+        }
+
+        // ============================================
+        // RENDER FUNCTIONS
+        // ============================================
+        
+        function renderBlogPosts() {
+            const grid = document.getElementById('blogPostsGrid');
+            const start = (blogState.currentPage - 1) * blogState.postsPerPage;
+            const end = start + blogState.postsPerPage;
+            const postsToShow = blogState.filteredPosts.slice(start, end);
+
+            if (postsToShow.length === 0) {
+                grid.innerHTML = `
+                    <div class="blog-no-results">
+                        <h3 class="blog-no-results-title">No articles found</h3>
+                        <p class="blog-no-results-text">Try adjusting your search or filter criteria</p>
+                    </div>
+                `;
+                return;
+            }
+
+            grid.innerHTML = postsToShow.map(post => {
+                const imageUrl = buildSanityImageUrl(post.mainImage);
+                const authorInitials = post.author?.name?.split(' ').map(n => n[0]).join('').toUpperCase() || 'A';
+                const authorImageUrl = post.author?.image ? buildSanityImageUrl(post.author.image, 40, 40) : null;
+                const readTime = calculateReadTime(post.body);
+                const postDate = formatDate(post.publishedAt);
+                
+                return `
+                    <article class="blog-post-card" data-blog-id="${post._id}" data-blog-slug="${post.slug?.current || ''}" style="cursor: pointer;">
+                        <div class="blog-post-image-wrapper">
+                            <img src="${imageUrl}" alt="${post.title}" class="blog-post-image" onerror="this.src='https://via.placeholder.com/600x400?text=Legal+Article'">
+                            ${post.featured ? '<span class="blog-post-featured-badge">Featured</span>' : ''}
+                        </div>
+                        <div class="blog-post-content-wrapper">
+                            <div class="blog-post-meta-top">
+                                ${post.categories && post.categories.length > 0 ? `<span class="blog-post-category">${post.categories[0].title}</span>` : ''}
+                                <span class="blog-post-date">${postDate}</span>
+                            </div>
+                            <h2 class="blog-post-title">${post.title}</h2>
+                            <p class="blog-post-excerpt">${post.excerpt || ''}</p>
+                            ${post.tags && post.tags.length > 0 ? `
+                                <div class="blog-post-tags-wrapper">
+                                    ${post.tags.slice(0, 3).map(tag => `
+                                        <span class="blog-post-tag-badge">${tag.title}</span>
+                                    `).join('')}
+                                    ${post.tags.length > 3 ? `<span class="blog-post-tag-badge">+${post.tags.length - 3} more</span>` : ''}
+                                </div>
+                            ` : ''}
+                            <div class="blog-post-meta-bottom">
+                                <div class="blog-post-author-info">
+                                    ${authorImageUrl ? 
+                                        `<img src="${authorImageUrl}" alt="${post.author?.name || 'Author'}" class="blog-post-author-avatar" onerror="this.style.display='none'; this.nextElementSibling?.style.display='flex';">` :
+                                        ''
+                                    }
+                                    <div class="blog-post-author-avatar" style="${authorImageUrl ? 'display:none;' : 'display:flex;'}">${authorInitials}</div>
+                                    <span class="blog-post-author-name">${post.author?.name || 'Anonymous'}</span>
+                                </div>
+                                <span class="blog-post-read-time">${readTime}</span>
+                            </div>
+                        </div>
+                    </article>
+                `;
+            }).join('');
+        }
+
+        function renderCategories() {
+            const list = document.getElementById('blogCategoriesList');
+            if (!blogState.categories || blogState.categories.length === 0) {
+                list.innerHTML = '<li style="padding: 12px 0; color: #666; text-align: center;">No categories available</li>';
+                return;
+            }
+
+            list.innerHTML = blogState.categories.map(category => {
+                const slug = category.slug?.current || category.slug || '';
+                return `
+                    <li class="blog-category-item ${blogState.selectedCategory === slug ? 'blog-active-category' : ''}" 
+                        data-blog-category="${slug}" style="cursor: pointer;">
+                        <span class="blog-category-name">${category.title}</span>
+                        <span class="blog-category-count">${category.count || 0}</span>
+                    </li>
+                `;
+            }).join('');
+        }
+
+        function renderTags() {
+            const cloud = document.getElementById('blogTagsCloud');
+            if (!blogState.tags || blogState.tags.length === 0) {
+                cloud.innerHTML = '<span style="color: #666; text-align: center; display: block; padding: 10px;">No tags available</span>';
+                return;
+            }
+
+            cloud.innerHTML = blogState.tags.slice(0, 20).map(tag => {
+                const slug = tag.slug?.current || tag.slug || '';
+                return `
+                    <span class="blog-tag-item ${blogState.selectedTag === slug ? 'blog-active-tag' : ''}" 
+                          data-blog-tag="${slug}"
+                          style="cursor: pointer;">
+                        ${tag.title}
+                    </span>
+                `;
+            }).join('');
+        }
+
+        function renderRecentPosts() {
+            const list = document.getElementById('blogRecentPostsList');
+            const recentPosts = blogState.allPosts.slice(0, 5);
+
+            if (recentPosts.length === 0) {
+                list.innerHTML = '<li style="padding: 12px 0; color: #666; text-align: center;">No recent posts</li>';
+                return;
+            }
+
+            list.innerHTML = recentPosts.map(post => {
+                const slug = post.slug?.current || post.slug || '';
+                return `
+                    <li class="blog-recent-post-item" data-blog-id="${post._id}" data-blog-slug="${slug}" style="cursor: pointer;">
+                        <div class="blog-recent-post-title">${post.title}</div>
+                        <div class="blog-recent-post-date">${formatDate(post.publishedAt)}</div>
+                    </li>
+                `;
+            }).join('');
+        }
+
+        function renderPagination() {
+            const pagination = document.getElementById('blogPagination');
+            const totalPages = Math.ceil(blogState.filteredPosts.length / blogState.postsPerPage);
+
+            if (totalPages <= 1) {
+                pagination.innerHTML = '';
+                return;
+            }
+
+            let paginationHTML = `
+                <button class="blog-pagination-btn" onclick="changePage(${blogState.currentPage - 1})" 
+                        ${blogState.currentPage === 1 ? 'disabled' : ''}>
+                    ← Previous
+                </button>
+            `;
+
+            // Show page numbers
+            for (let i = 1; i <= totalPages; i++) {
+                if (i === 1 || i === totalPages || (i >= blogState.currentPage - 1 && i <= blogState.currentPage + 1)) {
+                    paginationHTML += `
+                        <button class="blog-pagination-btn ${i === blogState.currentPage ? 'blog-active-page' : ''}" 
+                                onclick="changePage(${i})">
+                            ${i}
+                        </button>
+                    `;
+                } else if (i === blogState.currentPage - 2 || i === blogState.currentPage + 2) {
+                    paginationHTML += `<span style="padding: 0 5px;">...</span>`;
+                }
+            }
+
+            paginationHTML += `
+                <button class="blog-pagination-btn" onclick="changePage(${blogState.currentPage + 1})" 
+                        ${blogState.currentPage === totalPages ? 'disabled' : ''}>
+                    Next →
+                </button>
+            `;
+
+            pagination.innerHTML = paginationHTML;
+        }
+
+        function renderAllContent() {
+            renderBlogPosts();
+            renderCategories();
+            renderTags();
+            renderRecentPosts();
+            renderPagination();
+        }
+
+        // ============================================
+        // FILTER & SORT FUNCTIONS
+        // ============================================
+        
+        function applyFilters() {
+            let filtered = [...blogState.allPosts];
+
+            // Apply category filter
+            if (blogState.selectedCategory) {
+                filtered = filtered.filter(post => {
+                    const categoryMatch = post.categories?.some(cat => {
+                        const slug = cat.slug?.current || cat.slug;
+                        return slug === blogState.selectedCategory;
+                    });
+                    return categoryMatch;
+                });
+            }
+
+            // Apply tag filter
+            if (blogState.selectedTag) {
+                filtered = filtered.filter(post => {
+                    const tagMatch = post.tags?.some(tag => {
+                        const slug = tag.slug?.current || tag.slug;
+                        return slug === blogState.selectedTag;
+                    });
+                    return tagMatch;
+                });
+            }
+
+            // Apply search filter
+            if (blogState.searchQuery) {
+                const query = blogState.searchQuery.toLowerCase();
+                filtered = filtered.filter(post => {
+                    return (
+                        post.title?.toLowerCase().includes(query) ||
+                        post.excerpt?.toLowerCase().includes(query) ||
+                        post.categories?.some(cat => cat.title?.toLowerCase().includes(query)) ||
+                        post.tags?.some(tag => tag.title?.toLowerCase().includes(query))
+                    );
+                });
+            }
+
+            // Apply sorting
+            filtered.sort((a, b) => {
+                if (blogState.sortBy === 'recent') {
+                    return new Date(b.publishedAt) - new Date(a.publishedAt);
+                } else if (blogState.sortBy === 'oldest') {
+                    return new Date(a.publishedAt) - new Date(b.publishedAt);
+                } else if (blogState.sortBy === 'popular') {
+                    return (b.featured ? 1 : 0) - (a.featured ? 1 : 0);
+                }
+                return 0;
+            });
+
+            blogState.filteredPosts = filtered;
+            blogState.currentPage = 1; // Reset to first page
+            renderAllContent();
+        }
+
+        function changePage(page) {
+            const totalPages = Math.ceil(blogState.filteredPosts.length / blogState.postsPerPage);
+            if (page < 1 || page > totalPages) return;
+            
+            blogState.currentPage = page;
+            renderBlogPosts();
+            renderPagination();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // ============================================
+        // UI HELPER FUNCTIONS
+        // ============================================
+        
+        function showLoading(show) {
+            document.getElementById('blogLoadingSpinner').style.display = show ? 'block' : 'none';
+        }
+
+        function showError(message) {
+            const errorEl = document.getElementById('blogErrorMessage');
+            errorEl.textContent = message;
+            errorEl.style.display = 'block';
+        }
+
+        function hideError() {
+            document.getElementById('blogErrorMessage').style.display = 'none';
+        }
+
+        // ============================================
+        // EVENT LISTENERS
+        // ============================================
+        
+        // Search functionality
+        const searchInput = document.getElementById('blogSearchInput');
+        if (searchInput) {
+            searchInput.addEventListener('input', function(e) {
+                blogState.searchQuery = e.target.value;
+                applyFilters();
+            });
+        }
+
+        // Sort functionality
+        const sortSelect = document.getElementById('blogSortSelect');
+        if (sortSelect) {
+            sortSelect.addEventListener('change', function(e) {
+                blogState.sortBy = e.target.value;
+                applyFilters();
+            });
+        }
+
+        // Category filter
+        const categoriesList = document.getElementById('blogCategoriesList');
+        if (categoriesList) {
+            categoriesList.addEventListener('click', function(e) {
+                const categoryItem = e.target.closest('.blog-category-item');
+                if (categoryItem) {
+                    const categorySlug = categoryItem.dataset.blogCategory;
+                    
+                    // Toggle category selection
+                    if (blogState.selectedCategory === categorySlug) {
+                        blogState.selectedCategory = null;
+                    } else {
+                        blogState.selectedCategory = categorySlug;
+                    }
+                    
+                    applyFilters();
+                }
+            });
+        }
+
+        // Tag filter
+        const tagsCloud = document.getElementById('blogTagsCloud');
+        if (tagsCloud) {
+            tagsCloud.addEventListener('click', function(e) {
+                if (e.target.classList.contains('blog-tag-item')) {
+                    const tagSlug = e.target.dataset.blogTag;
+                    
+                    // Toggle tag selection
+                    if (blogState.selectedTag === tagSlug) {
+                        blogState.selectedTag = null;
+                    } else {
+                        blogState.selectedTag = tagSlug;
+                    }
+                    
+                    applyFilters();
+                }
+            });
+        }
+
+        // Newsletter form
+        const newsletterForm = document.getElementById('blogNewsletterForm');
+        if (newsletterForm) {
+            newsletterForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const email = this.querySelector('.blog-newsletter-input').value;
+                
+                // TODO: Integrate with your newsletter service (Mailchimp, SendGrid, etc.)
+                alert('Thank you for subscribing to our newsletter! We\'ll send you the latest legal insights.');
+                this.reset();
+            });
+        }
+
+        // Post click handler (navigate to post detail page)
+        const postsGrid = document.getElementById('blogPostsGrid');
+        if (postsGrid) {
+            postsGrid.addEventListener('click', function(e) {
+                const card = e.target.closest('.blog-post-card');
+                if (card) {
+                    const postSlug = card.dataset.blogSlug;
+                    const postId = card.dataset.blogId;
+                    
+                    // Update with your actual post detail page URL structure
+                    if (postSlug) {
+                        // Option 1: Redirect to a detail page
+                        window.location.href = `/blog-post.html?slug=${postSlug}`;
+                        // Option 2: Or use this format for dynamic routing
+                        // window.location.href = `/posts/${postSlug}`;
+                    }
+                }
+            });
+        }
+
+        // Recent post click handler
+        const recentPostsList = document.getElementById('blogRecentPostsList');
+        if (recentPostsList) {
+            recentPostsList.addEventListener('click', function(e) {
+                const item = e.target.closest('.blog-recent-post-item');
+                if (item) {
+                    const postSlug = item.dataset.blogSlug;
+                    const postId = item.dataset.blogId;
+                    
+                    if (postSlug) {
+                        window.location.href = `/blog-post.html?slug=${postSlug}`;
+                    }
+                }
+            });
+        }
+
+        // ============================================
+        // INITIALIZATION
+        // ============================================
+        
+        // Load blog data when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            loadBlogData();
+        });
+
+        // Expose changePage function globally for pagination buttons
+        window.changePage = changePage;
     </script>
-
-  </body>
+</body>
 </html>
