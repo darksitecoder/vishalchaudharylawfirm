@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Article</title>
+    <style>
+        :root{
+            --bg:#f8f9fa; --accent:#c3a167; --dark:#0b1b2e; --muted:#666;
+        }
+        body{font-family: 'Georgia', serif; background:var(--bg); color:#000; margin:0;}
+        .container{max-width:1000px;margin:40px auto;padding:20px}
+        .post-hero{background:linear-gradient(135deg,var(--dark) 0%,#1a2f45 100%);color:#fff;padding:40px 30px;border-radius:8px;margin-bottom:30px}
+        .post-title{font-size:2.6em;margin-bottom:8px}
+        .post-meta{display:flex;gap:12px;align-items:center;flex-wrap:wrap;color:var(--muted);margin-bottom:10px}
+        .post-category{background:var(--dark);color:var(--accent);padding:6px 12px;border-radius:3px;font-weight:700;text-transform:uppercase;font-size:0.85em}
+        .post-hero-image{width:100%;max-height:480px;object-fit:cover;border-radius:6px;margin-top:20px}
+        .post-body{background:#fff;padding:30px;border-radius:8px;box-shadow:0 2px 15px rgba(0,0,0,0.05);margin-bottom:30px}
+        .post-body p{line-height:1.8;color:#222;margin-bottom:16px}
+        .post-tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+        .tag{background:#f5f5f5;padding:6px 12px;border-radius:12px;color:var(--dark);border:1px solid #e0e0e0}
+        .author{display:flex;gap:12px;align-items:center}
+        .author-avatar{width:56px;height:56px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700}
+        .back-link{display:inline-block;margin-bottom:18px;color:var(--dark);text-decoration:none;font-weight:600}
+        .not-found{background:#fff;padding:30px;border-radius:8px;text-align:center}
+        @media (max-width:768px){.post-title{font-size:1.8em}}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a class="back-link" id="backToBlog" href="blog.html">← Back to Articles</a>
+
+        <div id="postHero" class="post-hero" style="display:none">
+            <div class="post-category" id="postCategory"></div>
+            <h1 class="post-title" id="postTitle"></h1>
+            <div class="post-meta">
+                <div id="postDate"></div>
+                <div id="postAuthor"></div>
+                <div id="postReadTime"></div>
+            </div>
+            <img id="postHeroImage" class="post-hero-image" src="https://via.placeholder.com/1200x480?text=Article+Image" alt="">
+        </div>
+
+        <div id="postBody" class="post-body" style="display:none"></div>
+
+        <div id="postTags" class="post-tags" style="display:none"></div>
+
+        <div id="postNotFound" class="not-found" style="display:none">
+            <h2>Article not found</h2>
+            <p>We couldn't find the article you're looking for. It may have been removed or the URL is incorrect.</p>
+            <p><a href="blog.html">Return to the blog listing</a></p>
+        </div>
+    </div>
+
+    <script>
+        // SANITY CONFIG - mirror blog.html
+        const SANITY_CONFIG = {
+            projectId: 'vmnkeya7',
+            dataset: 'production',
+            apiVersion: '2024-01-26',
+            useCdn: true
+        };
+        const SANITY_BASE_URL = `https://${SANITY_CONFIG.projectId}.api.sanity.io/v${SANITY_CONFIG.apiVersion}/data/query/${SANITY_CONFIG.dataset}`;
+
+        function buildSanityImageUrl(imageRef, width = 1200, height = 480) {
+            if (!imageRef) return 'https://via.placeholder.com/1200x480?text=No+Image';
+            if (typeof imageRef === 'string' && imageRef.startsWith('http')) return imageRef;
+            let url = null;
+            if (imageRef?.asset?.url) url = imageRef.asset.url;
+            else if (imageRef?.url) url = imageRef.url;
+            if (url) {
+                const separator = url.includes('?') ? '&' : '?';
+                return `${url}${separator}w=${width}&h=${height}&fit=crop`;
+            }
+            return 'https://via.placeholder.com/1200x480?text=Article+Image';
+        }
+
+        function formatDate(dateString) {
+            if (!dateString) return '';
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            return new Date(dateString).toLocaleDateString('en-US', options);
+        }
+
+        function calculateReadTime(content) {
+            if (!content) return '5 min read';
+            const wordsPerMinute = 200;
+            const textContent = typeof content === 'string' ? content : JSON.stringify(content);
+            const wordCount = textContent.split(/\s+/).length;
+            const minutes = Math.max(1, Math.ceil(wordCount / wordsPerMinute));
+            return `${minutes} min read`;
+        }
+
+        function getQueryParam(name) {
+            const params = new URLSearchParams(window.location.search);
+            return params.get(name);
+        }
+
+        async function fetchFromSanity(query) {
+            try {
+                const url = `${SANITY_BASE_URL}?query=${encodeURIComponent(query)}`;
+                const res = await fetch(url);
+                if (!res.ok) throw new Error('Network response was not ok');
+                const json = await res.json();
+                return json.result;
+            } catch (err) {
+                console.error('Sanity fetch error', err);
+                throw err;
+            }
+        }
+
+        function renderPortableTextToHtml(blocks) {
+            if (!blocks) return '';
+            if (typeof blocks === 'string') return `<p>${escapeHtml(blocks)}</p>`;
+            if (!Array.isArray(blocks)) return `<pre>${escapeHtml(JSON.stringify(blocks))}</pre>`;
+
+            return blocks.map(block => {
+                if (block._type === 'block') {
+                    const text = (block.children || []).map(c => c.text || '').join('');
+                    return `<p>${escapeHtml(text)}</p>`;
+                }
+                // image object
+                if (block._type === 'image') {
+                    const src = buildSanityImageUrl(block.asset || block, 1000, 600);
+                    return `<figure><img src="${src}" style="max-width:100%;height:auto;border-radius:6px;" alt=""></figure>`;
+                }
+                // fallback for unknown types
+                return `<pre>${escapeHtml(JSON.stringify(block))}</pre>`;
+            }).join('');
+        }
+
+        function escapeHtml(str) {
+            return String(str)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;');
+        }
+
+        async function loadPost() {
+            const slug = getQueryParam('slug');
+            if (!slug) {
+                showNotFound();
+                return;
+            }
+
+            const QUERY = `*[_type == "post" && slug.current == "${slug}"][0]{
+                _id,
+                title,
+                slug,
+                publishedAt,
+                excerpt,
+                body,
+                featured,
+                mainImage{asset->{_id,url}},
+                "category": categories[0]->{_id,title,slug},
+                "categories": categories[]->{_id,title,slug},
+                "tags": tags[]->{_id,title,slug},
+                author->{_id,name,image{asset->{_id,url}}}
+            }`;
+
+            try {
+                const result = await fetchFromSanity(QUERY);
+                if (!result) {
+                    showNotFound();
+                    return;
+                }
+                renderPost(result);
+            } catch (err) {
+                console.error(err);
+                showNotFound();
+            }
+        }
+
+        function renderPost(post) {
+            const hero = document.getElementById('postHero');
+            const titleEl = document.getElementById('postTitle');
+            const dateEl = document.getElementById('postDate');
+            const authorEl = document.getElementById('postAuthor');
+            const readTimeEl = document.getElementById('postReadTime');
+            const categoryEl = document.getElementById('postCategory');
+            const heroImg = document.getElementById('postHeroImage');
+            const bodyEl = document.getElementById('postBody');
+            const tagsEl = document.getElementById('postTags');
+
+            titleEl.textContent = post.title || 'Untitled Article';
+            dateEl.textContent = post.publishedAt ? formatDate(post.publishedAt) : '';
+            authorEl.textContent = post.author?.name || 'Author';
+            readTimeEl.textContent = calculateReadTime(post.body || post.excerpt);
+            categoryEl.textContent = post.category?.title || '';
+
+            const heroUrl = buildSanityImageUrl(post.mainImage);
+            heroImg.src = heroUrl;
+            heroImg.alt = post.title || 'Article image';
+
+            // Body rendering
+            bodyEl.innerHTML = renderPortableTextToHtml(post.body) || `<p>${escapeHtml(post.excerpt || '')}</p>`;
+
+            // Tags
+            if (post.tags && post.tags.length) {
+                tagsEl.style.display = 'flex';
+                tagsEl.innerHTML = post.tags.map(t => `<span class="tag">${escapeHtml(t.title)}</span>`).join('');
+            }
+
+            hero.style.display = 'block';
+            bodyEl.style.display = 'block';
+        }
+
+        function showNotFound() {
+            document.getElementById('postNotFound').style.display = 'block';
+        }
+
+        document.addEventListener('DOMContentLoaded', function(){
+            loadPost();
+        });
+    </script>
+
+    <script src="assets/js/load-header-footer.js"></script>
+</body>
+</html>

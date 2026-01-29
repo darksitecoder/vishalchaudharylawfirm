@@ -4,6 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Legal Blog - Articles & Insights</title>
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Premium Law Firm - Professional Legal Solutions">
+  <meta name="author" content="Vishal Chaudhary's Law Firm">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+  <title>Vishal Chaudhary's Law Firm Attorneys & Legal Consultants</title>
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Additional CSS Files -->
+  <link rel="stylesheet" href="assets/css/fontawesome.css">
+  <link rel="stylesheet" href="assets/css/templatemo-finance-business.css">
+  <link rel="stylesheet" href="assets/css/owl.css">
+  <link rel="stylesheet" href="assets/css/custom-services-menu.css">
     <style>
         * {
             margin: 0;
@@ -599,8 +612,20 @@
     </style>
 </head>
 <body>
+      <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>  
+    <!-- ***** Preloader End ***** -->
+
+    <!-- Header - Loaded Dynamically -->
+    <div id="header-placeholder"></div>
     <div class="blog-container">
-        <div class="blog-hero-section">
+        <div class="blog-hero-section mt-5">
             <h1 class="blog-hero-title">Legal Insights & Articles</h1>
             <p class="blog-hero-subtitle">Expert Analysis on Law, Justice, and Legal Practice</p>
             <div id="sampleDataNotice" style="margin-top: 20px; background: rgba(255,255,255,0.1); padding: 15px; border-radius: 5px; font-size: 0.95em; color: rgba(255,255,255,0.9); display: none;">
@@ -645,14 +670,14 @@
                     </ul>
                 </div>
 
-                <div class="blog-sidebar-widget blog-newsletter-widget">
+                <!-- <div class="blog-sidebar-widget blog-newsletter-widget">
                     <h3 class="blog-newsletter-title">Subscribe to Newsletter</h3>
                     <p class="blog-newsletter-text">Get the latest legal insights delivered to your inbox</p>
                     <form class="blog-newsletter-form" id="blogNewsletterForm">
                         <input type="email" class="blog-newsletter-input" placeholder="Your email address" required>
                         <button type="submit" class="blog-newsletter-submit">Subscribe</button>
                     </form>
-                </div>
+                </div> -->
 
                 <div class="blog-sidebar-widget">
                     <h3 class="blog-widget-title">Popular Tags</h3>
@@ -817,13 +842,18 @@
         async function fetchFromSanity(query) {
             try {
                 const url = `${SANITY_BASE_URL}?query=${encodeURIComponent(query)}`;
+                console.debug('Sanity fetch URL:', url);
                 const response = await fetch(url);
-                
+
+                console.debug('Sanity response status:', response.status);
                 if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
+                    const text = await response.text().catch(() => '');
+                    console.error('Sanity fetch failed:', response.status, text);
+                    throw new Error(`HTTP error! status: ${response.status} ${text}`);
                 }
-                
+
                 const data = await response.json();
+                console.debug('Sanity fetch result length:', Array.isArray(data.result) ? data.result.length : typeof data.result);
                 return data.result;
             } catch (error) {
                 console.error('Error fetching from Sanity:', error);
@@ -850,18 +880,46 @@
 
                 // If no posts found, show demo data
                 if (!blogState.allPosts || blogState.allPosts.length === 0) {
-                    console.log('No posts found in Sanity. Showing sample data...');
+                    console.warn('No posts found in Sanity. Posts array empty.');
+                    // Show a clearer message to the page and a debug panel with the last fetch details
+                    showError('No published posts were returned from Sanity. Possible causes: posts are saved as drafts, `projectId` or `dataset` is incorrect, or CORS/permissions are blocking requests. See debug panel for raw response.');
+                    showDebugInfo({ sanityBaseUrl: SANITY_BASE_URL, postsCount: blogState.allPosts.length, categoriesCount: blogState.categories.length, tagsCount: blogState.tags.length });
+                    // Still load sample data so the page isn't empty for demo
                     loadSampleData();
                     return;
                 }
 
                 renderAllContent();
             } catch (error) {
-                showError('Failed to load blog content. Showing sample data for demonstration.');
+                showError('Failed to load blog content from Sanity. Check console and debug panel for details. Showing sample data.');
                 console.error('Error loading blog data:', error);
+                showDebugInfo({ sanityBaseUrl: SANITY_BASE_URL, error: String(error) });
                 loadSampleData();
             } finally {
                 showLoading(false);
+            }
+        }
+
+        // Debug panel to show fetch diagnostics for troubleshooting
+        function showDebugInfo(obj) {
+            try {
+                let panel = document.getElementById('blogDebugPanel');
+                if (!panel) {
+                    panel = document.createElement('pre');
+                    panel.id = 'blogDebugPanel';
+                    panel.style.background = '#f8f9fa';
+                    panel.style.border = '1px solid #e0e0e0';
+                    panel.style.padding = '12px';
+                    panel.style.margin = '16px 0';
+                    panel.style.overflow = 'auto';
+                    panel.style.maxHeight = '240px';
+                    const container = document.querySelector('.blog-content-area');
+                    if (container) container.insertBefore(panel, container.firstChild.nextSibling);
+                }
+                panel.style.display = 'block';
+                panel.textContent = JSON.stringify(obj, null, 2);
+            } catch (e) {
+                console.error('Failed to render debug panel:', e);
             }
         }
 
@@ -1366,7 +1424,7 @@
                     // Update with your actual post detail page URL structure
                     if (postSlug) {
                         // Option 1: Redirect to a detail page
-                        window.location.href = `/blog-post.html?slug=${postSlug}`;
+                        window.location.href = `blog-post.html?slug=${postSlug}`;
                         // Option 2: Or use this format for dynamic routing
                         // window.location.href = `/posts/${postSlug}`;
                     }
@@ -1384,7 +1442,7 @@
                     const postId = item.dataset.blogId;
                     
                     if (postSlug) {
-                        window.location.href = `/blog-post.html?slug=${postSlug}`;
+                        window.location.href = `blog-post.html?slug=${postSlug}`;
                     }
                 }
             });
@@ -1401,6 +1459,32 @@
 
         // Expose changePage function globally for pagination buttons
         window.changePage = changePage;
+    </script>
+
+     <!-- Footer - Loaded Dynamically -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Additional Scripts -->
+    <script src="assets/js/custom.js"></script>
+    <script src="assets/js/owl.js"></script>
+    <script src="assets/js/slick.js"></script>
+    <script src="assets/js/accordions.js"></script>
+    <script src="assets/js/custom-services-menu.js"></script>
+    <script src="assets/js/load-header-footer.js"></script>
+
+    <script language = "text/Javascript"> 
+      cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
+      function clearField(t){                   //declaring the array outside of the
+      if(! cleared[t.id]){                      // function makes it static and global
+          cleared[t.id] = 1;  // you could use true and false, but that's more typing
+          t.value='';         // with more chance of typos
+          t.style.color='#fff';
+          }
+      }
     </script>
 </body>
 </html>
