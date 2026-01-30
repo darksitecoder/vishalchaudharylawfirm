@@ -140,11 +140,14 @@ jQuery( document ).ready(function( $ ) {
                 $w = jQuery(window),
                 viewTop = $w.scrollTop(),
                 viewBottom = viewTop + $w.height(),
-                _top = $t.offset().top,
-                _bottom = _top + $t.height(),
+                // Guard against empty selections (offset() will be undefined)
+                _offset = ($t && $t.length) ? $t.offset() : null,
+                _top = _offset ? _offset.top : null,
+                _bottom = _top !== null ? _top + $t.height() : null,
                 compareTop = partial === true ? _bottom : _top,
                 compareBottom = partial === true ? _top : _bottom;
 
+            if (_top === null || _bottom === null) return false;
             return ((compareBottom <= viewBottom) && (compareTop >= viewTop) && $t.is(':visible'));
 
         }
