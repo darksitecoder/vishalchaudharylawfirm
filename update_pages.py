@@ -18,7 +18,8 @@ files_to_update = [
     'service-law.html',
     'servicesex.html',
     'vishal-chaudhary.html',
-    'blog.html'
+    'blog.html',
+    'blog-post.html'
 ]
 
 # Header replacement pattern

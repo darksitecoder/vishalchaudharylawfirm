@@ -1,15 +1,29 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog Article</title>
+    <title>Legal Blog - Articles & Insights</title>
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Premium Law Firm - Professional Legal Solutions">
+  <meta name="author" content="Vishal Chaudhary's Law Firm">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+  <title>Vishal Chaudhary's Law Firm Attorneys & Legal Consultants</title>
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Additional CSS Files -->
+  <link rel="stylesheet" href="assets/css/fontawesome.css">
+  <link rel="stylesheet" href="assets/css/templatemo-finance-business.css">
+  <link rel="stylesheet" href="assets/css/owl.css">
+  <link rel="stylesheet" href="assets/css/custom-services-menu.css">
     <style>
         :root{
             --bg:#f8f9fa; --accent:#c3a167; --dark:#0b1b2e; --muted:#666;
         }
-        body{font-family: 'Georgia', serif; background:var(--bg); color:#000; margin:0;}
-        .container{max-width:1000px;margin:40px auto;padding:20px}
+        /* body{font-family: 'Georgia', serif; background:var(--bg); color:#000; margin:0;}
+        .container{max-width:1000px;margin:40px auto;padding:20px} */
         .post-hero{background:linear-gradient(135deg,var(--dark) 0%,#1a2f45 100%);color:#fff;padding:40px 30px;border-radius:8px;margin-bottom:30px}
         .post-title{font-size:2.6em;margin-bottom:8px}
         .post-meta{display:flex;gap:12px;align-items:center;flex-wrap:wrap;color:var(--muted);margin-bottom:10px}
@@ -27,10 +41,22 @@
     </style>
 </head>
 <body>
-    <div class="container">
+      <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>  
+    <!-- ***** Preloader End ***** -->
+
+    <!-- Header - Loaded Dynamically -->
+    <div id="header-placeholder"></div>
+    <div class="container pb-5">
         <a class="back-link" id="backToBlog" href="blog.html">← Back to Articles</a>
 
-        <div id="postHero" class="post-hero" style="display:none">
+        <div id="postHero" class="post-hero mt-5 pt-5" style="display:none">
             <div class="post-category" id="postCategory"></div>
             <h1 class="post-title" id="postTitle"></h1>
             <div class="post-meta">
@@ -214,7 +240,17 @@
             loadPost();
         });
     </script>
+<div id="footer-placeholder"></div>
+    <script src="assets/js/load-header-footer.js"></script><script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
+    <!-- Additional Scripts -->
+    <script src="assets/js/custom.js"></script>
+    <script src="assets/js/owl.js"></script>
+    <script src="assets/js/slick.js"></script>
+    <script src="assets/js/accordions.js"></script>
+    <script src="assets/js/custom-services-menu.js"></script>
     <script src="assets/js/load-header-footer.js"></script>
+
 </body>
 </html>
