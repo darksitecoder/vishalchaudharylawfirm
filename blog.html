@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="assets/css/templatemo-finance-business.css">
   <link rel="stylesheet" href="assets/css/owl.css">
   <link rel="stylesheet" href="assets/css/custom-services-menu.css">
+  <script src="https://cdn.jsdelivr.net/npm/@sanity/client@latest/dist/sanityClient.min.js"></script>
     <style>
         * {
             margin: 0;
@@ -777,8 +778,9 @@
         // SANITY QUERIES
         // ============================================
         
-        // GROQ query for fetching blog posts with complete data
-        const POSTS_QUERY = `*[_type == "post"] | order(publishedAt desc) {
+        // GROQ query for fetching published blog posts with complete data
+        // Only include documents that have a publishedAt and are not drafts
+        const POSTS_QUERY = `*[_type == "post" && defined(publishedAt) && !(_id in path("drafts.**"))] | order(publishedAt desc) {
             _id,
             title,
             slug,
@@ -843,17 +845,34 @@
             try {
                 const url = `${SANITY_BASE_URL}?query=${encodeURIComponent(query)}`;
                 console.debug('Sanity fetch URL:', url);
-                const response = await fetch(url);
+
+                // Use explicit CORS mode and no-cache to avoid stale CDN responses during debugging
+                const response = await fetch(url, {
+                    method: 'GET',
+                    mode: 'cors',
+                    cache: 'no-cache',
+                    credentials: 'omit',
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
 
                 console.debug('Sanity response status:', response.status);
                 if (!response.ok) {
                     const text = await response.text().catch(() => '');
                     console.error('Sanity fetch failed:', response.status, text);
-                    throw new Error(`HTTP error! status: ${response.status} ${text}`);
+                    // Provide actionable debug text for common CORS / permission issues
+                    throw new Error(`HTTP error! status: ${response.status} ${text}. If you see CORS or permissions errors, add your site origin to the CORS origins in Sanity Studio (Manage > CORS origins) or make the dataset public.`);
                 }
 
                 const data = await response.json();
-                console.debug('Sanity fetch result length:', Array.isArray(data.result) ? data.result.length : typeof data.result);
+                // data should be an object with a `result` array
+                if (!data || !Array.isArray(data.result)) {
+                    console.warn('Sanity returned unexpected payload:', data);
+                    return [];
+                }
+
+                console.debug('Sanity fetch result length:', data.result.length);
                 return data.result;
             } catch (error) {
                 console.error('Error fetching from Sanity:', error);
