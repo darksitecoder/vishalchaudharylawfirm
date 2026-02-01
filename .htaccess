@@ -1,12 +1,8 @@
 # Enable URL rewriting to serve extensionless URLs by internally rewriting to .html
 # Place this file in the site root (same folder as your HTML files).
 
+# Enable rewrite engine
 RewriteEngine On
-
-## Exclude blog pages from extensionless rewrite so blog stays at blog.html
-RewriteRule ^(blog|blog-post)(/.*)?$ - [L]
-
-
 
 # If the requested path is not an existing file or directory
 RewriteCond %{REQUEST_FILENAME} !-f
