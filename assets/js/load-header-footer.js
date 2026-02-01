@@ -147,6 +147,18 @@
         if (yearSpan) {
           yearSpan.textContent = new Date().getFullYear();
         }
+        // Dynamically load form handler script after footer is injected so it runs on all pages
+        try {
+          if (!document.getElementById('form-handler-script')) {
+            const s = document.createElement('script');
+            s.id = 'form-handler-script';
+            s.src = 'assets/js/form-handler.js';
+            s.defer = true;
+            document.body.appendChild(s);
+          }
+        } catch (e) {
+          console.error('Failed to load form-handler script', e);
+        }
       })
       .catch(error => {
         console.error('Error loading footer:', error);
