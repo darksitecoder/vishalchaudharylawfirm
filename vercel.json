@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/((?!_next|api|.*\\..*$|blog(?:-post)?).*)",
+      "destination": "/$1.html"
+    }
+  ]
+}
