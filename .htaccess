@@ -1,0 +1,17 @@
+# Enable URL rewriting to serve extensionless URLs by internally rewriting to .html
+# Place this file in the site root (same folder as your HTML files).
+
+RewriteEngine On
+
+
+
+# If the requested path is not an existing file or directory
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+# But adding .html results in a real file, then rewrite internally to that file
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.*)$ $1.html [L]
+
+# Optional: Redirect requests with trailing slash to without (uncomment if desired)
+# RewriteCond %{REQUEST_URI} ^/(.+)/$
+# RewriteRule ^ %1 [R=301,L]

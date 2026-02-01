@@ -1,0 +1,15 @@
+# Netlify redirect rule to map extensionless requests to corresponding .html file if present.
+# Note: Netlify supports placeholder `:splat` in the `to` field.
+# Place this file at the repo root and deploy to Netlify.
+
+[[redirects]]
+  from = "/*"
+  to = "/:splat.html"
+  status = 200
+  force = false
+
+# If you instead want a simple SPA fallback, use:
+# [[redirects]]
+#   from = "/*"
+#   to = "/index.html"
+#   status = 200

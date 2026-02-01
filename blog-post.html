@@ -560,7 +560,7 @@
       <a
         class="back-link mt-5"
         id="backToBlog"
-        href="blog.html"
+        href="/blog.html"
         style="margin-top: 10rem"
         >← Back to Articles</a
       >
@@ -592,7 +592,7 @@
               We couldn't find the article you're looking for. It may have been
               removed or the URL is incorrect.
             </p>
-            <p><a href="blog.html">Return to the blog listing</a></p>
+            <p><a href="/blog.html">Return to the blog listing</a></p>
           </div>
         </main>
 
@@ -671,6 +671,8 @@
         return params.get(name);
       }
 
+      
+
       async function fetchFromSanity(query) {
         try {
           const url = `${SANITY_BASE_URL}?query=${encodeURIComponent(query)}`;
@@ -680,7 +682,8 @@
           return json.result;
         } catch (err) {
           console.error("Sanity fetch error", err);
-          throw err;
+          // Return null to allow fallback to local sample data
+          return null;
         }
       }
 
@@ -774,6 +777,8 @@
         );
       }
 
+      
+
       function renderPortableTextToHtml(blocks) {
         if (!blocks) return "";
         if (typeof blocks === "string") return `<p>${escapeHtml(blocks)}</p>`;
@@ -832,11 +837,11 @@
 
         try {
           const result = await fetchFromSanity(QUERY);
-          if (!result) {
-            showNotFound();
+          if (result) {
+            renderPost(result);
             return;
           }
-          renderPost(result);
+          showNotFound();
         } catch (err) {
           console.error(err);
           showNotFound();

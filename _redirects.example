@@ -1,0 +1,7 @@
+# Netlify example redirects: map extensionless paths to corresponding .html
+# Save as `_redirects` at deploy time (this file kept as example to avoid accidental overwrite).
+
+/*    /:splat.html    200
+
+# If you prefer an SPA fallback instead:
+# /*   /index.html   200

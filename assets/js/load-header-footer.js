@@ -44,6 +44,11 @@
       return 'services';
     }
 
+    // Blog pages (including blog-post) should mark 'blog' active
+    if (currentPage.indexOf('blog') === 0) {
+      return 'blog';
+    }
+
     // Direct page mapping
     const pageMap = {
       'index': 'index',
