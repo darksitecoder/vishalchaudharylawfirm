@@ -3,6 +3,9 @@
 
 RewriteEngine On
 
+## Exclude blog pages from extensionless rewrite so blog stays at blog.html
+RewriteRule ^(blog|blog-post)(/.*)?$ - [L]
+
 
 
 # If the requested path is not an existing file or directory
