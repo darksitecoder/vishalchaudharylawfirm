@@ -15,6 +15,15 @@
 
   // Map page names to navigation identifiers
   function getPageIdentifier() {
+    // Allow pages to override the detected page id by setting `window.PAGE_ID` or
+    // by adding `data-page="..."` on the `<body>` element.
+    if (typeof window !== 'undefined' && window.PAGE_ID) {
+      return String(window.PAGE_ID).toLowerCase();
+    }
+    if (document && document.body && document.body.getAttribute('data-page')) {
+      return document.body.getAttribute('data-page').toLowerCase();
+    }
+
     const currentPage = getCurrentPage();
     
     // Service pages mapping
