@@ -58,6 +58,16 @@
     const submitBtn = form.querySelector('button[type="submit"], input[type="submit"]');
     if (submitBtn) { submitBtn.disabled = true; }
 
+    // Quick config check: warn if placeholders not replaced
+    function notConfigured() {
+      return CONFIG.service_id.indexOf('YOUR_') === 0 || CONFIG.template_id.indexOf('YOUR_') === 0 || CONFIG.user_id.indexOf('YOUR_') === 0;
+    }
+    if (notConfigured()){
+      alert('Email service is not configured. Please set EmailJS service_id, template_id and user_id in assets/js/form-handler.js');
+      if (submitBtn) { submitBtn.disabled = false; }
+      return;
+    }
+
     // Gather common fields
     const getVal = id => {
       const el = form.querySelector('#' + id) || form.querySelector('[name="' + id + '"]');
