@@ -106,13 +106,43 @@
       templateParams.subject = templateParams.subject || 'Website Form Submission';
     }
 
+    // helper: show inline message in the form (replaces alert())
+    function showMessage(msg, isSuccess){
+      let el = form.querySelector('.form-result');
+      if (!el){
+        el = document.createElement('div');
+        el.className = 'form-result';
+        form.appendChild(el);
+      }
+      el.textContent = msg;
+      el.classList.remove('success','error');
+      el.classList.add(isSuccess ? 'success' : 'error');
+      el.style.display = 'block';
+      try { el.scrollIntoView({behavior: 'smooth', block: 'center'}); } catch(e){}
+      // auto-hide after 6s
+      setTimeout(() => { if (el) el.style.display = 'none'; }, 6000);
+    }
+
+    // Ensure templateParams contains all form fields (so EmailJS template can reference them)
+    try {
+      const formData = new FormData(form);
+      formData.forEach((v,k) => { templateParams[k] = templateParams[k] || v; });
+    } catch (e) {
+      // ignore
+    }
+
+    // Add common alias keys EmailJS templates sometimes expect
+    templateParams.reply_to = templateParams.reply_to || templateParams.email || templateParams.from_email || '';
+    templateParams.sender_email = templateParams.sender_email || templateParams.from_email || templateParams.email || '';
+    templateParams.sender_name = templateParams.sender_name || templateParams.from_name || templateParams.name || '';
+
     // send
     sendEmail(templateParams).then(() => {
-      try { alert('Thank you — your message was sent. We will contact you soon.'); } catch(e){}
+      showMessage('Thank you — your message was sent. We will contact you soon.', true);
       form.reset();
     }).catch(err => {
       console.error('Email send error', err);
-      try { alert('Sorry — an error occurred while sending the message.'); } catch(e){}
+      showMessage('Sorry — an error occurred while sending the message.', false);
     }).finally(() => {
       if (submitBtn) { submitBtn.disabled = false; }
     });
