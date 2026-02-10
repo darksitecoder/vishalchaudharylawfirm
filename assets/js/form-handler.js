@@ -16,7 +16,7 @@
   // CONFIG - replace these with your EmailJS values
   const CONFIG = {
     service_id: 'service_zfgwo7x',
-    template_id: 'template_8tprpdr',
+    template_id: 'template_vg6puy9',
     user_id: 'vifUthlAhMBDHopJV', // public key
     // Destination email (site owner)
     to_email: 'info@vishalchaudharyslawoffice.com',
