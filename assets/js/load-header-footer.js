@@ -165,6 +165,14 @@
       });
   }
 
+  // Hide preloader when page is fully loaded
+  function hidePreloader() {
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+      preloader.style.display = 'none';
+    }
+  }
+
   // Initialize when DOM is ready
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', function() {
@@ -176,8 +184,16 @@
     loadFooter();
   }
 
+  // Hide preloader when window fully loads
+  window.addEventListener('load', function() {
+    hidePreloader();
+  });
+
   // Re-set active nav after header loads (in case of async loading)
   setTimeout(setActiveNav, 100);
   setTimeout(setActiveNav, 500);
+  
+  // Also hide preloader after a delay as backup
+  setTimeout(hidePreloader, 3000);
 
 })();
