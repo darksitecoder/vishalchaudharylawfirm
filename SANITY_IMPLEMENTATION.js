@@ -285,7 +285,7 @@ const NEXT_STEPS = [
     "   - Test email subscription",
     "",
     "5. CUSTOMIZE STYLING",
-    "   - Adjust colors to match your law firm brand",
+    "   - Adjust colors to match your law Office brand",
     "   - Modify fonts and sizes",
     "   - Test across different browsers"
 ];

@@ -334,4 +334,4 @@ Pagination reset to page 1
 
 ---
 
-**This schema is optimized for a law firm blog with full filtering, search, and categorization!**
+**This schema is optimized for a law Office blog with full filtering, search, and categorization!**

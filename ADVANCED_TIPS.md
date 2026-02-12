@@ -146,7 +146,7 @@ useCdn: true
 ## 🎨 Styling Customization
 
 ### Color Scheme
-Current colors are law firm themed:
+Current colors are law Office themed:
 - **Primary Dark**: `#0b1b2e` (dark navy)
 - **Accent Gold**: `#c3a167` (gold)
 - **Text Dark**: `#000` (black)

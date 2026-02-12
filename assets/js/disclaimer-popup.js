@@ -16,7 +16,7 @@
               <h4><i class="fa fa-info-circle"></i> Legal Disclaimer</h4>
             </div>
             <div class="disclaimer-body">
-              <p>This website and its contents are provided for informational purposes only. The information on this website does not constitute legal advice and should not be relied upon as such. No attorney-client relationship is formed by visiting this website or contacting our firm. Please consult with a qualified attorney for advice regarding your specific legal situation.</p>
+              <p>This website and its contents are provided for informational purposes only. The information on this website does not constitute legal advice and should not be relied upon as such. No attorney-client relationship is formed by visiting this website or contacting our Office. Please consult with a qualified attorney for advice regarding your specific legal situation.</p>
               <p class="disclaimer-note"><strong>By continuing to use this website, you acknowledge that you have read and understood this disclaimer.</strong></p>
             </div>
             <div class="disclaimer-footer">

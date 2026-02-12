@@ -67,7 +67,7 @@ Your Sanity blog integration is **complete with sample data** and ready to displ
 - ✓ Error handling
 
 ### Professional Styling
-- ✓ Dark navy + gold theme (law firm style)
+- ✓ Dark navy + gold theme (law Office style)
 - ✓ Clean typography
 - ✓ Smooth animations
 - ✓ Mobile-first responsive
